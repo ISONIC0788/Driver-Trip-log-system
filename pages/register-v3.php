@@ -46,7 +46,7 @@
       </div>
     </div>
     <!-- [ Pre-loader ] End -->
-
+<form action="<?php $_PHP_SELF ?>" method="post">
     <div class="auth-main">
       <div class="auth-wrapper v3">
         <div class="auth-form">
@@ -73,23 +73,27 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="First Name" />
+                    <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="firtname" />
                     <label for="floatingInput">First Name</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput1" placeholder="Last Name" />
+                    <input type="text" class="form-control" id="floatingInput1" placeholder="Last Name" name="lastname" />
                     <label for="floatingInput1">Last Name</label>
                   </div>
                 </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput2" placeholder="Email Address / Username" />
-                <label for="floatingInput2">Email Address / Username</label>
+                <input type="email" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="email" />
+                <label for="floatingInput2">Email Address </label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput3" placeholder="Password" />
+                <input type="phone" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="phonenumber"/>
+                <label for="floatingInput2">Phone Number</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingInput3" placeholder="Password" name="password" />
                 <label for="floatingInput3">Password</label>
               </div>
               <div class="form-check mt-3s">
@@ -99,7 +103,7 @@
                 </label>
               </div>
               <div class="d-grid mt-4">
-                <button type="button" class="btn btn-secondary p-2">Sign Up</button>
+                <button type="submit" name="submit" class="btn btn-secondary p-2">Sign Up</button>
               </div>
               <hr />
               <h5 class="d-flex justify-content-center">Already have an account?</h5>
@@ -108,6 +112,7 @@
         </div>
       </div>
     </div>
+    </form>
     <!-- [ Main Content ] end -->
     <!-- Required Js -->
     <script src="../assets/js/plugins/popper.min.js"></script>
@@ -147,3 +152,33 @@
   </body>
   <!-- [Body] end -->
 </html>
+
+<?php
+include("conn.php");
+
+if (isset($_POST['submit'])){
+  $firt_name = $_POST['firtname'];
+  $last_name = $_POST['lastname'];
+  $user_email = $_POST['email'];
+  $user_password = $_POST['password'];
+  // pass word hide 
+ $pass_hash = sha1($user_password);
+  $phone_number = $_POST['phonenumber'];
+
+  // $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES ( '$firt_name', '$last_name', '$user_password', '$user_email', '$phone_number')";
+  $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES (?,?,?,?,?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("sssss",$firt_name,$last_name,$pass_hash,$user_email,$phone_number);
+
+  if($stmt->execute()){
+  echo"user registered  succes fully!";
+  }else{
+    echo"Error:".$stmt->error;
+  }
+  
+
+}
+
+
+
+?>
