@@ -3,7 +3,7 @@
   <!-- [Head] start -->
 
   <head>
-    <title>DRIVER REGISTRATION</title>
+    <title>TRIP REGISTRATION</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -83,26 +83,7 @@
         <i class="ti ti-menu-2"></i>
       </a>
     </li>
-    <li class="dropdown pc-h-item d-inline-flex d-md-none">
-      <a
-        class="pc-head-link head-link-secondary dropdown-toggle arrow-none m-0"
-        data-bs-toggle="dropdown"
-        href="#"
-        role="button"
-        aria-haspopup="false"
-        aria-expanded="false"
-      >
-        <i class="ti ti-search"></i>
-      </a>
-      <div class="dropdown-menu pc-h-dropdown drp-search">
-        <form class="px-3">
-          <div class="mb-0 d-flex align-items-center">
-            <i data-feather="search"></i>
-            <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . ." />
-          </div>
-        </form>
-      </div>
-    </li>
+    
     <li class="pc-h-item d-none d-md-inline-flex">
       <form class="header-search">
         <i data-feather="search" class="icon-search"></i>
@@ -250,38 +231,66 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                              <input type="number" class="form-control" id="floatingInput" placeholder="Driver Id Number" name="firtname" />
-                              <label for="floatingInput">Driver Id Number</label>
-                            </div>
-                          </div>
-                          
-                        </div>                       
-                        
-                        
-                          <select class="form-control">
-                            <option name="userId">Select User Id</option>
+                        <div class="mb-3">
+                          <label for="vehicle_id" class="form-label">Vehicle ID</label>
+                          <select class="form form-control">
+                            <option>Select Vehicle Id...</option>
                             <?php
-                            $con=mysqli_connect('localhost','root','','driver_trip_log_db');
-                            $slc=mysqli_query($con,"select * from users");
-                            while($ftch=mysqli_fetch_array($slc)){
-                            ?>
-                            <option>
-                              <?php
-                             echo $ftch['user_id'];
-                             ?>
-                            </option>
+$connection=mysqli_connect('localhost','root','','driver_trip_log_db');
+$vehselect=mysqli_query($connection,"select * from Vehicles");
+while($ftvh=mysqli_fetch_array($vehselect)){
+  ?>
+  <option><?php echo $ftvh['vehicle_id'];?></option>
+<?php
+}
+?>
+
                           </select>
-                           
-                      <br>
-                        
-                          <center><input type="submit" name="submit" value="SUBMIT" class="btn btn-secondary p-2"></center>
-                        
-                        
                       </div>
-                    </div>
+                      <div class="mb-3">
+                          <label for="trip_id" class="form-label">Trip ID</label>
+                          <select class="form form-control">
+                            <option>Select Trip Id...</option>
+                            <?php
+$connection=mysqli_connect('localhost','root','','driver_trip_log_db');
+$trpselect=mysqli_query($connection,"select * from trip_detail");
+while($fttrp=mysqli_fetch_array($trpselect)){
+  ?>
+  <option><?php echo $fttrp['trip_id'];?></option>
+<?php
+}
+?>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="driver_id" class="form-label">Driver ID</label>
+                          <select class="form form-control">
+                            <option>Select Trip Id...</option>
+                            <?php
+$connection=mysqli_connect('localhost','root','','driver_trip_log_db');
+$driverselect=mysqli_query($connection,"select * from drivers");
+while($ftdriver=mysqli_fetch_array($driverselect)){
+  ?>
+  <option><?php echo $ftdriver['driver_id'];?></option>
+<?php
+}
+?>
+
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="departure_time" class="form-label">Departure Time</label>
+                          <input type="time" class="form-control" id="departure_time" name="departure_time" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="status" class="form-label">Status</label>
+                          <select class="form-select" id="status" name="status">
+                              <option value="pending">Pending</option>
+                              <option value="approved">Approved</option>
+                              <option value="declined">Declined</option>
+                          </select>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </div>
               </div>
