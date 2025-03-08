@@ -1,3 +1,11 @@
+<?php
+include "../pages/conn.php";
+session_start();
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
@@ -71,7 +79,7 @@
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link"
+          <a href="../dashboard/index.php" class="pc-link"
             ><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Default</span></a
           >
         </li>
@@ -87,13 +95,13 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
+          <a href="./drivers.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-people"></i></span>
             <span class="pc-mtext">Drivers</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_color.html" class="pc-link">
+          <a href="./vehicles.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-bus-front"></i></span>
             <span class="pc-mtext">Vehicles</span>
           </a>
@@ -284,7 +292,7 @@
         <div class="dropdown-header">
           <h4>
             Good Morning,
-            <span class="small text-muted">John Doe</span>
+            <span class="small text-muted"><?php if($_SESSION) {print_r($_SESSION['username']);} ?></span>
           </h4>
           <p class="text-muted">Project Admin</p>
           <hr />
@@ -328,14 +336,14 @@
             <div class="row align-items-center">
               <div class="col">
                 <div class="page-header-title">
-                  <h5 class="m-b-10">Sample Page</h5>
+                  <h5 class="m-b-10">Users Page</h5>
                 </div>
               </div>
               <div class="col-auto">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
                   <li class="breadcrumb-item"><a href="javascript: void(0)">Other</a></li>
-                  <li class="breadcrumb-item" aria-current="page">Sample Page</li>
+                  <li class="breadcrumb-item" aria-current="page">Users Page</li>
                 </ul>
               </div>
             </div>
@@ -350,12 +358,78 @@
           <div class="col-sm-12">
             <div class="card">
               <div class="card-header">
-                <h5>Hello card</h5>
+                <h5>List of users  </h5>
               </div>
               <div class="card-body">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore error beatae assumenda aliquid? Iusto sequi repellendus
-                doloribus dicta, voluptate odit odio perferendis id ipsam similique quasi praesentium sint saepe? Obcaecati!
-              </div>
+                <!-- [tables and data diplay ] -->
+                 <table class ="table table-hover">
+                  <thead>
+                    <th>
+                    
+                      <td>#id</td>
+                      <td>First Name</td>
+                      <td>Last Name</td>
+                      <td>Email </td>
+                      <td>Phone Number</td>
+                      <td>Action </td>
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <?php
+                        $sqluser = "SELECT * FROM users";
+                         // result for table user 
+
+                       $result2 = $conn->query($sqluser);
+                      if($result2->num_rows > 0 ){
+                          $id = 0;
+                           while($row2 = $result2->fetch_array()){
+                           $id ++;  // for counting user in table 
+
+                           // for result form database 
+                           $rowid = $row2[0];
+                         ?>
+            <tbody>
+                  <tr>
+                    <td>  </td>
+                    <td> <?php echo $id;?> </td>
+                    <td><?php echo $row2["first_name"];?> </td>
+                    <td><?php echo $row2["last_name"];?></td>
+                    <td><?php echo $row2["email_address"];?></td>
+                    <td><?php echo $row2["phone_number"];?></td>
+                    <td>
+                      <?php
+ /// for delete 
+                  echo "<a href='useraction/update.php?id=$rowid' class='btn btn-warning' onclick='return confirm(Are you sure you want to delete this user?);'>
+                  <i class='bi bi-pencil-square'></i></a>";
+                       echo "<a href='useraction/delete.php?id=$rowid' class='btn btn-danger'>
+                  <i class='bi bi-trash'></i></a>";    
+                      ?>
+                    </td>
+                 </tr>
+      </tbody>
+
+
+         <?php
+          
+          }
+
+        }else{
+           echo "no result found!!";
+        }
+
+       
+       
+       ?>
+       <!-- [php for  php for diplay the table ] -->
+                    </tr> 
+                    
+                    <!-- table-hover -->
+                  </tbody>
+                 </table>
+
+                <!-- [ end tables and data diplay ] -->
+             </div>
             </div>
           </div>
           <!-- [ sample-page ] end -->

@@ -1,3 +1,12 @@
+<?php
+include "../pages/conn.php";
+session_start();
+
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
@@ -87,13 +96,13 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
+          <a href="#" class="pc-link">
             <span class="pc-micon"><i class="bi bi-people"></i></span>
             <span class="pc-mtext">Drivers</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_color.html" class="pc-link">
+          <a href="./vehicles.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-bus-front"></i></span>
             <span class="pc-mtext">Vehicles</span>
           </a>
@@ -353,8 +362,62 @@
                 <h5>Hello card</h5>
               </div>
               <div class="card-body">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore error beatae assumenda aliquid? Iusto sequi repellendus
-                doloribus dicta, voluptate odit odio perferendis id ipsam similique quasi praesentium sint saepe? Obcaecati!
+                  <!-- [tables and data diplay ] -->
+                 <table class ="table table-hover">
+                  <thead>
+                    <th>
+                    
+                      <td>#Id</td>
+                      <td>Driver ID</td>
+                      <td>User ID</td>
+                      <td>Action </td>
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <?php
+                        $sqluser = "SELECT * FROM drivers";
+                         // result for table user 
+
+                       $result2 = $conn->query($sqluser);
+                      if($result2->num_rows > 0 ){
+                          $id = 0;
+                           while($row2 = $result2->fetch_array()){
+                           $id ++;  // for counting user in table 
+
+                           // for result form database 
+                           $rowid = $row2[0];
+                         ?>
+                <tbody>
+                  <tr>
+                    <td>  </td>
+                    <td> <?php echo $id;?> </td>
+                    <td><?php echo $row2[0];?> </td>
+                    <td><?php echo $row2[1];?></td>
+                    <td>
+                      <?php
+ /// for delete 
+                  echo "<a href='useraction/update.php?id=$rowid' class='btn btn-warning' onclick='return confirm(Are you sure you want to delete this user?);'>
+                  <i class='bi bi-pencil-square'></i></a>";
+                       echo "<a href='useraction/delete.php?id=$rowid' class='btn btn-danger'>
+                  <i class='bi bi-trash'></i></a>";    
+                      ?>
+                    </td>
+                 </tr>
+           </tbody>
+         </table>
+
+         <?php
+          
+          }
+
+        }else{
+           echo "no result found!!";
+        }
+
+       
+       
+       ?>
               </div>
             </div>
           </div>
