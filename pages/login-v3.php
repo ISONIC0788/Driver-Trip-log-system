@@ -1,3 +1,11 @@
+<?php
+ include "conn.php";
+ session_start();
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
@@ -46,7 +54,7 @@
       </div>
     </div>
     <!-- [ Pre-loader ] End -->
-
+<form action="<?php $_PHP_SELF ?>" method="POST">
     <div class="auth-main">
       <div class="auth-wrapper v3">
         <div class="auth-form">
@@ -73,11 +81,21 @@
               </div>
               <h5 class="my-4 d-flex justify-content-center">Sign in with Email address</h5>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Email address / Username" />
-                <label for="floatingInput">Email address / Username</label>
+                <input type="text" class="form-control" name="useremail" id="floatingInput" placeholder="Email address / Username" />
+                <label for="floatingInput">Email address / Phone number</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput1" placeholder="Password" />
+                 <select class="form-control" id="floatingInput" name="userrole">
+                      <option value="" disabled selected>Select Option</option>
+                      <option value="admin">Admin</option>
+                      <option value="driver">Driver</option>
+                      <option value="financial">Financial</option>
+                  </select>
+              <label for="floatingInput">Choose Login Method</label>
+           </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="userpassword"  id="floatingInput1" placeholder="Password"  />
                 <label for="floatingInput1">Password</label>
               </div>
               <div class="d-flex mt-1 justify-content-between">
@@ -88,7 +106,7 @@
                 <h5 class="text-secondary">Forgot Password?</h5>
               </div>
               <div class="d-grid mt-4">
-                <button type="button" class="btn btn-secondary">Sign In</button>
+                <button type="submit" class="btn btn-secondary">Sign In</button>
               </div>
               <hr />
               <h5 class="d-flex justify-content-center">Don't have an account?</h5>
@@ -97,6 +115,7 @@
         </div>
       </div>
     </div>
+    </form>
     <!-- [ Main Content ] end -->
     <!-- Required Js -->
     <script src="../assets/js/plugins/popper.min.js"></script>
@@ -136,3 +155,41 @@
   </body>
   <!-- [Body] end -->
 </html>
+
+
+
+<?php
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+     $username = $_POST['useremail'];
+     $password = $_POST['userpassword'];
+     $userrole = $_POST['userrole'];
+     $passhash = sha1($password);
+
+     $sql = "SELECT users.user_id, users.password, roles.role_name 
+            FROM users 
+            INNER JOIN user_roles ON users.user_id = user_roles.user_id 
+            INNER JOIN roles ON roles.role_id = user_roles.role_id 
+            WHERE users.email_address = ?";
+     $stmt = $conn->prepare($sql);
+     $stmt->bind_param("s",$username);
+     $stmt->execute();
+
+     $result  = $stmt->get_result();
+
+     if($row = $result ->fetch_assoc()){
+           
+     }else{
+        echo "invalid email you have entered ";
+     }
+
+
+
+    //  echo $passhash;
+
+
+}
+
+
+?>

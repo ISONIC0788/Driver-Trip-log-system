@@ -171,7 +171,8 @@ if (isset($_POST['submit'])){
   $stmt->bind_param("sssss",$firt_name,$last_name,$pass_hash,$user_email,$phone_number);
 
   if($stmt->execute()){
-  echo"user registered  succes fully!";
+  // echo"user registered  succes fully!";
+     echo "<script>window.location ='login-v3.php'</script>";     // to link form one to other 
   }else{
     echo"Error:".$stmt->error;
   }
