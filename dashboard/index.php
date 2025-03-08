@@ -509,7 +509,7 @@ session_start();
              </thead>
                    <!-- [php for  php for diplay the table ] -->
        <?php
-        $sqluser = "SELECT first_name  , last_name , email_address , phone_number FROM users";
+        $sqluser = "SELECT * FROM users";
         // result for table user 
 
         $result2 = $conn->query($sqluser);
