@@ -1,3 +1,9 @@
+<?php
+include '../pages/conn.php';
+session_start();
+// print_r($_SESSION);   // for printing all session 
+?>
+
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
@@ -35,6 +41,13 @@
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 <link rel="stylesheet" href="../assets/css/style-preset.css" />
 
+<!-- for the icon boost  -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+<!-- end foe  -->
+<!-- <a href="../pages/conn.php"></a> -->
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
@@ -68,38 +81,60 @@
         </li>
 
         <li class="pc-item pc-caption">
-          <label>Elements</label>
+          <label>Activity</label>
           <i class="ti ti-apps"></i>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-            <span class="pc-mtext">Typography</span>
+          <a href="../other/users.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-person-lines-fill"></i></span>
+            <span class="pc-mtext">Users</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_color.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
-            <span class="pc-mtext">Color</span>
+          <a href="../other/drivers.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-people"></i></span>
+            <span class="pc-mtext">Drivers</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-plant-2"></i></span>
-            <span class="pc-mtext">Icons</span>
+          <a href="../other/vehicles.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-bus-front"></i></span>
+            <span class="pc-mtext">Vehicles</span>
           </a>
         </li>
+        <li class="pc-item">
+          <a href="../other/trip.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-geo-alt"></i></span>
+            <span class="pc-mtext">Trips</span>
+          </a>
+        </li>
+        
+        <li class="pc-item">
+          <a href="../other/financial.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-bar-chart"></i></span>
+            <span class="pc-mtext">Financial</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="../other/mentainace.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-wrench"></i> </span>
+            <span class="pc-mtext">Mentainance</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="../other/logsactivity.php" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+            <span class="pc-mtext">logs</span>
+          </a>
+        </li>
+      
+
 
         <li class="pc-item pc-caption">
           <label>Pages</label>
           <i class="ti ti-news"></i>
         </li>
-        <li class="pc-item">
-          <a class="pc-link" target="_blank" href="../pages/login-v3.html">
-            <span class="pc-micon"><i class="ti ti-lock"></i></span>
-            <span class="pc-mtext">Login</span>
-          </a>
-        </li>
+       
         <li class="pc-item">
           <a href="../pages/register-v3.html" target="_blank" class="pc-link">
             <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
@@ -111,51 +146,7 @@
           <label>Other</label>
           <i class="ti ti-brand-chrome"></i>
         </li>
-        <li class="pc-item pc-hasmenu">
-          <a href="#!" class="pc-link"
-            ><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Menu levels</span
-            ><span class="pc-arrow"><i data-feather="chevron-right"></i></span
-          ></a>
-          <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
-            <li class="pc-item pc-hasmenu">
-              <a href="#!" class="pc-link"
-                >Level 2.2<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-              ></a>
-              <ul class="pc-submenu">
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                <li class="pc-item pc-hasmenu">
-                  <a href="#!" class="pc-link"
-                    >Level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-                  ></a>
-                  <ul class="pc-submenu">
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="pc-item pc-hasmenu">
-              <a href="#!" class="pc-link"
-                >Level 2.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-              ></a>
-              <ul class="pc-submenu">
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                <li class="pc-item pc-hasmenu">
-                  <a href="#!" class="pc-link"
-                    >Level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-                  ></a>
-                  <ul class="pc-submenu">
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+      
         <li class="pc-item">
           <a href="../other/sample-page.html" class="pc-link">
             <span class="pc-micon"><i class="ti ti-brand-chrome"></i></span>
@@ -164,13 +155,7 @@
         </li>
 
       </ul>
-      <div class="pc-navbar-card bg-primary rounded">
-        <h4 class="text-white">Explore full code</h4>
-        <p class="text-white opacity-75">Buy now to get full access of code files</p>
-        <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/" target="_blank" class="btn btn-light text-primary">
-          Buy Now
-        </a>
-      </div>
+     
       <div class="w-100 text-center">
         <div class="badge theme-version badge rounded-pill bg-light text-dark f-12"></div>
       </div>
@@ -298,7 +283,7 @@
         <div class="dropdown-header">
           <h4>
             Good Morning,
-            <span class="small text-muted">John Doe</span>
+            <span class="small text-muted"><?php if($_SESSION) {print_r($_SESSION['username']);} ?></span>
           </h4>
           <p class="text-muted">Project Admin</p>
           <hr />
@@ -371,7 +356,7 @@
                   1350
                   <i class="ti ti-arrow-up-right-circle opacity-50"></i>
                 </span>
-                <p class="mb-0 opacity-50">Total Pending Orders</p>
+                <p class="mb-0 opacity-50">Total Pending </p>
               </div>
             </div>
           </div>
@@ -459,10 +444,26 @@
                   <div class="avtar avtar-lg">
                     <i class="text-white ti ti-credit-card"></i>
                   </div>
+
+                  <!-- [use to countin number of user ] -->
+                   <?php
+                    $sql = "SELECT COUNT(*) AS total_users FROM users";
+                    $result = $conn->query($sql);
+                    if($row = $result->fetch_assoc()){
+                        
+                   ?>
+                   <!-- [end to countin number of user ] -->
                   <div class="ms-2">
-                    <h4 class="text-white mb-1">$203k</h4>
-                    <p class="mb-0 opacity-75 text-sm">Total Income</p>
+                    <h4 class="text-white mb-1"><?php echo $row['total_users']?> Users</h4>
+                    <p class="mb-0 opacity-75 text-sm">Total Users</p>
                   </div>
+                   <!-- [ start for php section ] -->
+                  <?php
+
+                  }
+                  ?>
+
+                  <!-- [ end for php section ] -->
                 </div>
               </div>
             </div>
@@ -488,18 +489,64 @@
               <div class="card-body">
                 <div class="row mb-3 align-items-center">
                   <div class="col">
-                    <small class="text-muted">Total Growth</small>
-                    <h3>$2,324.00</h3>
+                    <small class="text-muted">Total Users</small>
+                    <h3> 15</h3>
                   </div>
-                  <div class="col-auto">
-                    <select class="form-select p-r-35">
-                      <option>Today</option>
-                      <option selected>This Month</option>
-                      <option>This Year</option>
-                    </select>
-                  </div>
+                  
                 </div>
-                <div id="growthchart"></div>
+
+ 
+
+          <!-- [table of users ] -->
+           <table class ="table table-hover">
+              <thead>
+                <th>
+                  <td>First name </td>
+                  <td>Last Name</td>
+                  <td>Phone number</td>
+                  <td>Email</td>
+                </th>
+             </thead>
+                   <!-- [php for  php for diplay the table ] -->
+       <?php
+        $sqluser = "SELECT first_name  , last_name , email_address , phone_number FROM users";
+        // result for table user 
+
+        $result2 = $conn->query($sqluser);
+        if($result2->num_rows > 0 ){
+          $id = 0;
+          while($row2 = $result2->fetch_assoc()){
+            $id ++;  // for counting user in table 
+
+        // for result form database 
+        ?>
+          <tbody>
+                  <tr>
+                    <td> <?php echo $id;?> </td>
+                    <td><?php echo $row2["first_name"];?> </td>
+                    <td><?php echo $row2["last_name"];?></td>
+                    <td><?php echo $row2["email_address"];?></td>
+                    <td><?php echo $row2["phone_number"];?></td>
+           </tr>
+      </tbody>
+
+
+       <?php
+          
+          }
+
+        }else{
+           echo "no result found!!";
+        }
+
+       
+       
+       ?>
+       <!-- [php for  php for diplay the table ] -->
+              
+             
+           </table>
+           <!-- [end for table of users] -->
               </div>
             </div>
           </div>

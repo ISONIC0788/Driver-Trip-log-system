@@ -109,7 +109,7 @@
                 <button type="submit" class="btn btn-secondary">Sign In</button>
               </div>
               <hr />
-              <h5 class="d-flex justify-content-center">Don't have an account?</h5>
+              <h5 class="d-flex justify-content-center">Don't have an account? </h5>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
      $userrole = $_POST['userrole'];
      $passhash = sha1($password);
 
-     $sql = "SELECT users.user_id, users.password, roles.role_name 
+     $sql = "SELECT users.user_id, users.password,users.first_name, roles.role_name 
             FROM users 
             INNER JOIN user_roles ON users.user_id = user_roles.user_id 
             INNER JOIN roles ON roles.role_id = user_roles.role_id 
@@ -179,9 +179,39 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
      $result  = $stmt->get_result();
 
      if($row = $result ->fetch_assoc()){
+      // for password verfying 
+       if($passhash == $row["password"] ){   // password_verify($password , $row["password"])
+        // assgining variable to the session 
+        $_SESSION['user_id']= $row['user_id'];
+        $_SESSION['role']= $row['role_name'];
+        $_SESSION['email']= $username;   // phone number or email 
+        $_SESSION['username']= $row['first_name'];
+
+        if($row['role_name']=='admin'){
+            //  for redicting admin to admin dashboard 
+            // header("Location: ../dashboard/index.html");
+            echo "<script>window.location ='../dashboard/index.php'</script>";
+
+        }else if($row['role_name']=='financial'){
+            //  for redicting  financial dashboard 
+          // echo "<script>window.location ='../dashboard/index.html'</script>";
+
+        }else if($row['role_name']=='driver'){
+          //  for redicting  driver dashboard 
+          // echo "<script>window.location ='../dashboard/index.html'</script>";
+        }
+
+
+
+
+      
+        }else{
+          echo "<div class='card'> <span class='btn  btn-danger'> password is incorrect</span> </div> ";
+        }
+
            
      }else{
-        echo "invalid email you have entered ";
+      echo "<div class='card'> <span class='danger'>Invalid email <a href='register-v3.php'> here</a> </span> </div> ";
      }
 
 
