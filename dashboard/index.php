@@ -1,3 +1,9 @@
+<?php
+include '../pages/conn.php';
+session_start();
+print_r($_SESSION);
+?>
+
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
@@ -35,6 +41,7 @@
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 <link rel="stylesheet" href="../assets/css/style-preset.css" />
 
+<!-- <a href="../pages/conn.php"></a> -->
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
