@@ -352,6 +352,12 @@
               <div class="card-body pc-component">
                 <p class="lead m-t-0">Your title goes here</p>
                 <!-- [start for registraion for user ] -->
+                <a href="../other/logsactivity.php" class="pc-link">
+                     <button class="btn btn-primary">
+                       <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+                       <span class="pc-mtext">Start Register</span>
+                      </button> 
+                    </a>
                  <!-- [end for start for registraion for user ] -->
                 
               </div>
@@ -364,7 +370,12 @@
               </div>
               <div class="card-body pc-component">
                 <!-- [registration for vehicles] -->
-
+                <a href="../other/logsactivity.php" class="pc-link">
+                     <button class="btn btn-primary">
+                       <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+                       <span class="pc-mtext">Start Register</span>
+                      </button> 
+                </a>
                 <!-- [ end for registration for vehicles] -->
               </div>
             </div>
@@ -376,7 +387,12 @@
               </div>
               <div class="card-body pc-component">
                   <!-- [registration for drivers] -->
-
+                  <a href="../other/logsactivity.php" class="pc-link">
+                     <button class="btn btn-primary">
+                       <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+                       <span class="pc-mtext">Start Register</span>
+                      </button> 
+                    </a>
                 <!-- [ end for registration for drivers ] -->
               
               </div>
@@ -389,7 +405,12 @@
               </div>
               <div class="card-body pc-component">
                   <!-- [registration for financial record ] -->
-
+                  <a href="../other/logsactivity.php" class="pc-link">
+                     <button class="btn btn-primary">
+                       <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+                       <span class="pc-mtext">Start Register</span>
+                      </button> 
+                    </a>
                 <!-- [ end for registration for finacial vehicles] -->
                 
               </div>
@@ -402,7 +423,12 @@
               </div>
               <div class="card-body pc-component">
                   <!-- [registration for mentainance record ] -->
-
+                  <a href="../other/logsactivity.php" class="pc-link">
+                     <button class="btn btn-primary">
+                       <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+                       <span class="pc-mtext">Start Register</span>
+                      </button> 
+                    </a>
                 <!-- [ end for registration for mentaince record ] -->
              
               </div>
@@ -411,29 +437,15 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5>Blockquotes</h5>
+                <h5>Trip Log Register <i class="bi bi-geo-alt"></i></h5>
               </div>
               <div class="card-body pc-component">
-                <p class="text-muted mb-1">Your awesome text goes here.</p>
-                <blockquote class="blockquote">
-                  <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <footer class="blockquote-footer">
-                    Someone famous in
-                    <cite title="Source Title">Source Title</cite>
-                  </footer>
-                </blockquote>
-                <p class="text-muted m-b-15 m-t-20">
-                  Add
-                  <code>.text-end</code>
-                  for a blockquote with right-aligned content.
-                </p>
-                <blockquote class="blockquote text-end">
-                  <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <footer class="blockquote-footer">
-                    Someone famous in
-                    <cite title="Source Title">Source Title</cite>
-                  </footer>
-                </blockquote>
+              <a href="./tripregister.php" class="pc-link">
+                <button class="btn btn-primary">
+                  <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+                  <span class="pc-mtext">Start Register</span>
+                </button> 
+              </a>
               </div>
             </div>
           </div>

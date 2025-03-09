@@ -136,7 +136,7 @@ session_start();
         </li>
        
         <li class="pc-item">
-          <a href="../pages/register-v3.html" target="_blank" class="pc-link">
+          <a href="../register/index.php" target="_blank" class="pc-link">
             <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
             <span class="pc-mtext">Register</span>
           </a>
