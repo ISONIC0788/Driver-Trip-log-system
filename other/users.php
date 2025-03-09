@@ -107,26 +107,26 @@ session_start();
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./trip.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-geo-alt"></i></span>
             <span class="pc-mtext">Trips</span>
           </a>
         </li>
         
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./financial.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-bar-chart"></i></span>
             <span class="pc-mtext">Financial</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./mentainace.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-wrench"></i> </span>
             <span class="pc-mtext">Mentainance</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./logsactivity.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
             <span class="pc-mtext">logs</span>
           </a>
