@@ -405,7 +405,7 @@ session_start();
                     </td>
                  </tr>
            </tbody>
-         </table>
+     
 
          <?php
           
@@ -418,6 +418,7 @@ session_start();
        
        
        ?>
+           </table>
               </div>
             </div>
           </div>
