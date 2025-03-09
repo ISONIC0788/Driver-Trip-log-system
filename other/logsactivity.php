@@ -71,7 +71,7 @@
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link"
+          <a href="../dashboard/index.php" class="pc-link"
             ><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Default</span></a
           >
         </li>
@@ -87,38 +87,38 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
+          <a href="./drivers.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-people"></i></span>
             <span class="pc-mtext">Drivers</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_color.html" class="pc-link">
+          <a href="./vehicles.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-bus-front"></i></span>
             <span class="pc-mtext">Vehicles</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./trip.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-geo-alt"></i></span>
             <span class="pc-mtext">Trips</span>
           </a>
         </li>
         
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./financial.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-bar-chart"></i></span>
             <span class="pc-mtext">Financial</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./mentainace.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-wrench"></i> </span>
             <span class="pc-mtext">Mentainance</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="#" class="pc-link">
             <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
             <span class="pc-mtext">logs</span>
           </a>
@@ -131,7 +131,7 @@
         </li>
      
         <li class="pc-item">
-          <a href="../pages/register-v3.html" target="_blank" class="pc-link">
+          <a href="../register/index.php" target="_blank" class="pc-link">
             <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
             <span class="pc-mtext">Register</span>
           </a>
