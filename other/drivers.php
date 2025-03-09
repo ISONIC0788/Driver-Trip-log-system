@@ -68,7 +68,7 @@ session_start();
 <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="../dashboard/index.html" class="b-brand text-primary">
+      <a href="../dashboard/index.php" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
         <img src="../assets/images/logo-dark.svg" alt="" class="logo logo-lg" />
       </a>
@@ -108,26 +108,26 @@ session_start();
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./trip.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-geo-alt"></i></span>
             <span class="pc-mtext">Trips</span>
           </a>
         </li>
         
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./financial.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-bar-chart"></i></span>
             <span class="pc-mtext">Financial</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./menainace.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-wrench"></i> </span>
             <span class="pc-mtext">Mentainance</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
+          <a href="./logsactivity.php" class="pc-link">
             <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
             <span class="pc-mtext">logs</span>
           </a>
@@ -140,7 +140,7 @@ session_start();
         </li>
      
         <li class="pc-item">
-          <a href="../pages/register-v3.html" target="_blank" class="pc-link">
+          <a href="../register/index.php" target="_blank" class="pc-link">
             <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
             <span class="pc-mtext">Register</span>
           </a>

@@ -3,7 +3,7 @@
   <!-- [Head] start -->
 
   <head>
-    <title>Sample Page | Berry Dashboard Template</title>
+    <title>Registeration | Driver Trip log System</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -36,11 +36,18 @@
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 <link rel="stylesheet" href="../assets/css/style-preset.css" />
 
+<!-- for the icon boost  -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+<!-- end foe  -->
+
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
 
-  <body data-pc-preset="preset-1" data-pc-sidebar-theme="light" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+  <body>
     <!-- [ Pre-loader ] start -->
 <div class="loader-bg">
   <div class="loader-track">
@@ -64,7 +71,7 @@
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link"
+          <a href="../dashboard/index.php" class="pc-link"
             ><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Default</span></a
           >
         </li>
@@ -73,37 +80,59 @@
           <label>Elements</label>
           <i class="ti ti-apps"></i>
         </li>
-        <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-            <span class="pc-mtext">Typography</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="../elements/bc_color.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
-            <span class="pc-mtext">Color</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="../elements/icon-tabler.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-plant-2"></i></span>
-            <span class="pc-mtext">Icons</span>
-          </a>
-        </li>
-
+       <!-- [for  links and other ] -->
+       <li class="pc-item">
+        <a href="../other/users.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-person-lines-fill"></i></span>
+          <span class="pc-mtext">Users</span>
+        </a>
+      </li>
+      <li class="pc-item">
+        <a href="../other/drivers.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-people"></i></span>
+          <span class="pc-mtext">Drivers</span>
+        </a>
+      </li>
+      <li class="pc-item">
+        <a href="../other/vehicles.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-bus-front"></i></span>
+          <span class="pc-mtext">Vehicles</span>
+        </a>
+      </li>
+      <li class="pc-item">
+        <a href="../other/trip.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-geo-alt"></i></span>
+          <span class="pc-mtext">Trips</span>
+        </a>
+      </li>
+      
+      <li class="pc-item">
+        <a href="../other/financial.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-bar-chart"></i></span>
+          <span class="pc-mtext">Financial</span>
+        </a>
+      </li>
+      <li class="pc-item">
+        <a href="../other/mentainace.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-wrench"></i> </span>
+          <span class="pc-mtext">Mentainance</span>
+        </a>
+      </li>
+      <li class="pc-item">
+        <a href="../other/logsactivity.php" class="pc-link">
+          <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
+          <span class="pc-mtext">logs</span>
+        </a>
+      </li>
+    
+        <!-- [end for the link ] -->
         <li class="pc-item pc-caption">
           <label>Pages</label>
           <i class="ti ti-news"></i>
         </li>
+    
         <li class="pc-item">
-          <a class="pc-link" target="_blank" href="../pages/login-v3.html">
-            <span class="pc-micon"><i class="ti ti-lock"></i></span>
-            <span class="pc-mtext">Login</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="../pages/register-v3.html" target="_blank" class="pc-link">
+          <a href="" target="_blank" class="pc-link">
             <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
             <span class="pc-mtext">Register</span>
           </a>
@@ -113,51 +142,7 @@
           <label>Other</label>
           <i class="ti ti-brand-chrome"></i>
         </li>
-        <li class="pc-item pc-hasmenu">
-          <a href="#!" class="pc-link"
-            ><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Menu levels</span
-            ><span class="pc-arrow"><i data-feather="chevron-right"></i></span
-          ></a>
-          <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
-            <li class="pc-item pc-hasmenu">
-              <a href="#!" class="pc-link"
-                >Level 2.2<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-              ></a>
-              <ul class="pc-submenu">
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                <li class="pc-item pc-hasmenu">
-                  <a href="#!" class="pc-link"
-                    >Level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-                  ></a>
-                  <ul class="pc-submenu">
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="pc-item pc-hasmenu">
-              <a href="#!" class="pc-link"
-                >Level 2.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-              ></a>
-              <ul class="pc-submenu">
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                <li class="pc-item pc-hasmenu">
-                  <a href="#!" class="pc-link"
-                    >Level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
-                  ></a>
-                  <ul class="pc-submenu">
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+     
         <li class="pc-item">
           <a href="../other/sample-page.html" class="pc-link">
             <span class="pc-micon"><i class="ti ti-brand-chrome"></i></span>
@@ -166,13 +151,7 @@
         </li>
 
       </ul>
-      <div class="pc-navbar-card bg-primary rounded">
-        <h4 class="text-white">Explore full code</h4>
-        <p class="text-white opacity-75">Buy now to get full access of code files</p>
-        <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/" target="_blank" class="btn btn-light text-primary">
-          Buy Now
-        </a>
-      </div>
+    
       <div class="w-100 text-center">
         <div class="badge theme-version badge rounded-pill bg-light text-dark f-12"></div>
       </div>
@@ -344,14 +323,14 @@
             <div class="row align-items-center">
               <div class="col">
                 <div class="page-header-title">
-                  <h5 class="m-b-10">Sample Page</h5>
+                  <h5 class="m-b-10">Register</h5>
                 </div>
               </div>
               <div class="col-auto">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-                  <li class="breadcrumb-item"><a href="javascript: void(0)">Other</a></li>
-                  <li class="breadcrumb-item" aria-current="page">Sample Page</li>
+                  <li class="breadcrumb-item"><a href="javascript: void(0)">Basic UI</a></li>
+                  <li class="breadcrumb-item" aria-current="page">Register</li>
                 </ul>
               </div>
             </div>
@@ -362,20 +341,128 @@
 
         <!-- [ Main Content ] start -->
         <div class="row">
-          <!-- [ sample-page ] start -->
-          <div class="col-sm-12">
+          <!-- [ Typography ] start -->
+       
+         
+          <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5>Hello card</h5>
+                <h5>Rigister User <i class="ti ti-user-plus "></i> </h5>
               </div>
-              <div class="card-body">
-                <i class="ti ti-maximize"></i>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore error beatae assumenda aliquid? Iusto sequi repellendus
-                doloribus dicta, voluptate odit odio perferendis id ipsam similique quasi praesentium sint saepe? Obcaecati!
+              <div class="card-body pc-component">
+                <p class="lead m-t-0">Your title goes here</p>
+                <!-- [start for registraion for user ] -->
+                 <!-- [end for start for registraion for user ] -->
+                
               </div>
             </div>
           </div>
-          <!-- [ sample-page ] end -->
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>Register Vehicle <i class="ti ti-truck"></i></h5>
+              </div>
+              <div class="card-body pc-component">
+                <!-- [registration for vehicles] -->
+
+                <!-- [ end for registration for vehicles] -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <h5>Register Driver <i class="ti ti-users"></i></h5>
+              </div>
+              <div class="card-body pc-component">
+                  <!-- [registration for drivers] -->
+
+                <!-- [ end for registration for drivers ] -->
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <h5>Financial Records <i class="ti ti-report-money"></i></h5>
+              </div>
+              <div class="card-body pc-component">
+                  <!-- [registration for financial record ] -->
+
+                <!-- [ end for registration for finacial vehicles] -->
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <h5>Mentainance Record <i class="bi bi-wrench"></i></h5>
+              </div>
+              <div class="card-body pc-component">
+                  <!-- [registration for mentainance record ] -->
+
+                <!-- [ end for registration for mentaince record ] -->
+             
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>Blockquotes</h5>
+              </div>
+              <div class="card-body pc-component">
+                <p class="text-muted mb-1">Your awesome text goes here.</p>
+                <blockquote class="blockquote">
+                  <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer class="blockquote-footer">
+                    Someone famous in
+                    <cite title="Source Title">Source Title</cite>
+                  </footer>
+                </blockquote>
+                <p class="text-muted m-b-15 m-t-20">
+                  Add
+                  <code>.text-end</code>
+                  for a blockquote with right-aligned content.
+                </p>
+                <blockquote class="blockquote text-end">
+                  <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer class="blockquote-footer">
+                    Someone famous in
+                    <cite title="Source Title">Source Title</cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>Horizontal Description</h5>
+              </div>
+              <div class="card-body pc-component">
+                <dl class="dl-horizontal row">
+                  <dt class="col-sm-3">Description lists</dt>
+                  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+                  <dt class="col-sm-3">Euismod</dt>
+                  <dd class="col-sm-9">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                  <dd class="col-sm-9">Donec id elit non mi porta gravida at eget metus.</dd>
+
+                  <dt class="col-sm-3">Malesuada porta</dt>
+                  <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+
+                  <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                  <dd class="col-sm-9">
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <!-- [ Typography ] end -->
         </div>
         <!-- [ Main Content ] end -->
       </div>
