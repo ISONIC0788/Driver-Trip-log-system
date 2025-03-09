@@ -2,6 +2,15 @@
 include("../pages/conn.php");
 session_start();
 
+$sqlvehicle ="SELECT vehicle_id FROM vehicle";
+$result_vehicle = $conn->query($sqlvehicle);
+
+$sqldriver = "SELECT driver_id FROM drivers";
+$result_driver = $conn->query($sqldriver);
+
+$sqltripdetail = "SELECT trip_id FROM trip_detail";
+$result_tripdetail = $conn->query($sqltripdetail);
+
 
 ?>
 
@@ -73,37 +82,89 @@ session_start();
               </div>
      
               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="firtname" />
-                    <label for="floatingInput">First Name</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput1" placeholder="Last Name" name="lastname" />
-                    <label for="floatingInput1">Last Name</label>
-                  </div>
-                </div>
+              <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                      
+                       <select class="form-control" id="floatingSelect" name="vehicleid">
+                         <option value="" selected disabled>Select Vehicle</option>
+                         <!-- [php to display vehicle id available] -->
+                          <?php
+                          while ($row = $result_vehicle->fetch_array()) {
+                          ?>
+                          <!-- [php to display vehicle id available] -->
+                         <option value="<?php echo $row[0]?>"><?php echo $row[0]?></option>
+                          <!-- [php to display vehicle id available] -->
+                          <?php
+                          }
+                          ?>
+                          <!-- [php to display vehicle id available] -->
+
+                         </select>
+                     <label for="floatingSelect">Vehicle Id</label>
+                 </div>
+               </div>
+               <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                       <select class="form-control" id="floatingSelect" name="tripid">
+                         <option value="" selected disabled>Select Trip detail</option>
+                         <!-- [php to display vehicle id available] -->
+                         <?php
+                          while ($row = $result_tripdetail->fetch_array()) {
+                          ?>
+                          <!-- [php to display vehicle id available] -->
+                          <option value="<?php echo $row[0]?>"><?php echo $row[0]?></option>
+
+                          <!-- [php to display vehicle id available] -->
+                          <?php
+                          }
+                          ?>
+                          <!-- [php to display vehicle id available] -->
+
+                         </select>
+                     <label for="floatingSelect">Trip Details </label>
+                 </div>
+               </div>
+
+               
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="email" />
-                <label for="floatingInput2">Email Address </label>
-              </div>
+                  <select class="form-control" id="floatingSelectEmail" name="driverid">
+                   <option value="" selected disabled>Select Driver</option>
+                          <!-- [php to display vehicle id available] -->
+                          <?php
+                              while ($row = $result_driver->fetch_array()) {
+                          ?>
+                          <!-- [php to display vehicle id available] -->
+                          <option value="<?php echo $row[0]?>"><?php echo $row[0]?></option>
+                         <!-- [php to display vehicle id available] -->
+                         <?php
+                              }
+                          ?>
+                          <!-- [php to display vehicle id available] -->
+                 
+               </select>
+               <label for="floatingSelectEmail">Select Driver</label>
+           </div>
+
               <div class="form-floating mb-3">
-                <input type="phone" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="phonenumber"/>
-                <label for="floatingInput2">Phone Number</label>
+                <input type="time" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="timedepture"/>
+                <label for="floatingInput2">Depature Time</label>
               </div>
-              <div class="form-floating mb-3">
+              <!-- [this is for status] -->
+              <!-- <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="floatingInput3" placeholder="Password" name="password" />
-                <label for="floatingInput3">Password</label>
-              </div>
+                <label for="floatingInput3">Status</label>
+              </div> -->
+
+              <!-- [end  this is for status] -->
               
               <div class="d-grid mt-4">
                 <button type="submit" name="submit" class="btn btn-secondary p-2">Register </button>
               </div>
               <hr />
-              <h5 class="d-flex justify-content-center"> click here go back ?</h5>
+              <h5 class="d-flex justify-content-center"> click here go back ?
+               <!-- <a onclick="goBackOrHome()" class="">Go Back</a> -->
+              </h5>
             </div>
           </div>
         </div>
@@ -144,7 +205,9 @@ session_start();
     <script>
       preset_change('preset-1');
     </script>
-    
+    <script>
+
+    </script>
 
   </body>
   <!-- [Body] end -->
@@ -154,26 +217,23 @@ session_start();
 
 
 if (isset($_POST['submit'])){
-  $firt_name = $_POST['firtname'];
-  $last_name = $_POST['lastname'];
-  $user_email = $_POST['email'];
-  $user_password = $_POST['password'];
-  // pass word hide 
- $pass_hash = sha1($user_password);
-  $phone_number = $_POST['phonenumber'];
+  $vehicle_id= $_POST['vehicleid'];
+  $trip_id = $_POST['tripid'];
+  $driver_id = $_POST['driverid'];
+  $time = $_POST['timedepture'];
+  $status = "pending";
 
-  // $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES ( '$firt_name', '$last_name', '$user_password', '$user_email', '$phone_number')";
-  $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES (?,?,?,?,?)";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("sssss",$firt_name,$last_name,$pass_hash,$user_email,$phone_number);
 
+  $sqlinseret = "INSERT INTO trip_log(vehicle_id,trip_id,driver_id, departure_time , STATUS) VALUES(?,?,?,?,?);";
+    $stmt = $conn->prepare($sqlinseret);
+    $stmt->bind_param("iiiss",$vehicle_id,$trip_id,$driver_id,$time,$status);
   if($stmt->execute()){
-  // echo"user registered  succes fully!";
-     echo "<script>window.location ='login-v3.php'</script>";     // to link form one to other 
+     echo "Trip is add successfull";
   }else{
-    echo"Error:".$stmt->error;
+    echo "Error: " . $stmt->error;
   }
   
+
 
   $conn->close();
 
