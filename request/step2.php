@@ -171,7 +171,7 @@ if (isset($_POST['submit'])){
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i",$location_id);
   if($stmt->execute()){
-  echo "<script>Window.location ='./step3.php'</script>";
+    echo "<script>window.location ='./step3.php'</script>";
   }else{
     echo "Error ".$stmt->error;
   }
