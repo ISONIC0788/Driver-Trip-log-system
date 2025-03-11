@@ -164,7 +164,7 @@ if (isset($_POST['submit'])){
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("ssss",$location_name,$location_address,$location_district,$location_province);
   if($stmt->execute()){
-  echo "Record is WeLL inserted";
+  echo "<script>window.location ='./step2.php'</script>";
   }else{
     echo "Error ".$stmt->error;
   }
