@@ -1,3 +1,9 @@
+<?php
+include("../pages/conn.php");
+session_start();
+
+?>
+
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
@@ -279,7 +285,7 @@
         <div class="dropdown-header">
           <h4>
             Good Morning,
-            <span class="small text-muted">John Doe</span>
+            <span class="small text-muted"><?php if($_SESSION) {print_r($_SESSION['username']);} ?></span>
           </h4>
           <p class="text-muted">Project Admin</p>
           <hr />
@@ -352,7 +358,7 @@
               <div class="card-body pc-component">
                 <p class="lead m-t-0">Your title goes here</p>
                 <!-- [start for registraion for user ] -->
-                <a href="../other/logsactivity.php" class="pc-link">
+                <a href="./userregister.php" class="pc-link">
                      <button class="btn btn-primary">
                        <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
                        <span class="pc-mtext">Start Register</span>

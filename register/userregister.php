@@ -1,10 +1,6 @@
 <?php
 include("../pages/conn.php");
 session_start();
-
-
-
-
 ?>
 
 
@@ -12,7 +8,7 @@ session_start();
 <html lang="en">
   <!-- [Head] start -->
   <head>
-    <title>SignUp | Driver Trip</title>
+    <title>SignUp | Berry Dashboard Template</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -68,54 +64,49 @@ session_start();
               <div class="row">
                 <div class="d-flex justify-content-center">
                   <div class="auth-header">
-                    <h2 class="text-secondary mt-5"><b>Register Vehicles</b></h2>
-                    <p class="f-16 mt-2">Enter the trip detail  to continue</p>
+                    <h2 class="text-secondary mt-5"><b>Register User </b></h2>
+                    <p class="f-16 mt-2">Enter correct information Abaut User</p>
                   </div>
                 </div>
               </div>
-     
+             
               <div class="row">
-              <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="platenumber"/>
-                    <label for="floatingInput2">Plate Number</label>
-                    
-                 </div>
-               </div>
-               <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                    <select class="form-control" id="floatingSelect" name="vehicletype">
-                         <option value="" selected disabled>Select Vehicle Type</option>
-                          <option value="Truck">Truck</option>
-                          <option value="Bus">Bus</option>
-                          <option value="Minibus">Minibus</option>
-                          <option value="Taxi">Taxi</option>
-                         </select>
-                     <label for="floatingSelect">Vehicle Type </label>
-                   </div>
-               </div>
-
-               
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="firtname" />
+                    <label for="floatingInput">First Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput1" placeholder="Last Name" name="lastname" />
+                    <label for="floatingInput1">Last Name</label>
+                  </div>
+                </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="vehiclemodel"/>
-                <label for="floatingInput2">Vehicle  Model</label>
+                <input type="email" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="email" />
+                <label for="floatingInput2">Email Address </label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="vehicleYear"/>
-                <label for="floatingInput2">Vehicle Year</label>
+                <input type="phone" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="phonenumber"/>
+                <label for="floatingInput2">Phone Number</label>
               </div>
-          
-              <!-- [by default status is availabel] -->
-            
-              
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingInput3" placeholder="Password" name="password" />
+                <label for="floatingInput3">Password</label>
+              </div>
+              <div class="form-check mt-3s">
+                <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
+                <label class="form-check-label" for="customCheckc1">
+                  <span class="h5 mb-0">Agree with <span>Terms & Condition.</span></span>
+                </label>
+              </div>
               <div class="d-grid mt-4">
-                <button type="submit" name="submit" class="btn btn-secondary p-2">Register </button>
+                <button type="submit" name="submit" class="btn btn-secondary p-2">Sign Up</button>
               </div>
               <hr />
-              <h5 class="d-flex justify-content-center"> click here go back ?
-               <!-- <a onclick="goBackOrHome()" class="">Go Back</a> -->
-              </h5>
+              <h5 class="d-flex justify-content-center">Already have an account?</h5>
             </div>
           </div>
         </div>
@@ -156,9 +147,7 @@ session_start();
     <script>
       preset_change('preset-1');
     </script>
-    <script>
-
-    </script>
+    
 
   </body>
   <!-- [Body] end -->
@@ -166,24 +155,29 @@ session_start();
 
 <?php
 
-
 if (isset($_POST['submit'])){
-  $plate_number= $_POST['platenumber'];
-  $vehicle_type = $_POST['vehicletype'];
-  $vehicle_model = $_POST['vehiclemodel'];
-  $vehicl_eyear = $_POST['vehicleYear'];
-  $status = "available";
+  $firt_name = $_POST['firtname'];
+  $last_name = $_POST['lastname'];
+  $user_email = $_POST['email'];
+  $user_password = $_POST['password'];
+  // pass word hide 
+ $pass_hash = sha1($user_password);
+  $phone_number = $_POST['phonenumber'];
 
-  $sql = "INSERT INTO vehicle(plate_number , vehicle_type , model , year , status) VALUES(?,?,?,?,?)";
+  // $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES ( '$firt_name', '$last_name', '$user_password', '$user_email', '$phone_number')";
+  $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES (?,?,?,?,?)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("sssss",$plate_number,$vehicle_type,$vehicle_model,$vehicl_eyear,$status);
+  $stmt->bind_param("sssss",$firt_name,$last_name,$pass_hash,$user_email,$phone_number);
 
- if($stmt->execute()){
-  echo "<script>window.location = './index.php'</script>";
- }else{
-  echo "Error:".$stmt->error;
- }
+  if($stmt->execute()){
+  // echo"user registered  succes fully!";
+     echo "<script>window.location ='index.php'</script>";     // to link form one to other 
+  }else{
+    echo"Error:".$stmt->error;
+  }
   
+
+  $conn->close();
 
 }
 
