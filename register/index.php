@@ -393,7 +393,7 @@ session_start();
               </div>
               <div class="card-body pc-component">
                   <!-- [registration for drivers] -->
-                  <a href="../other/logsactivity.php" class="pc-link">
+                  <a href="./driveregistration.php" class="pc-link">
                      <button class="btn btn-primary">
                        <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
                        <span class="pc-mtext">Start Register</span>
