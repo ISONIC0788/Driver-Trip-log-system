@@ -149,7 +149,7 @@ CREATE TABLE `request_for_trip` (
   `request_id` int(11) NOT NULL,
   `trip_id` int(11) NOT NULL,
   `request_by` varchar(150) DEFAULT NULL,
-  `date_request` timestamp NOT NULL DEFAULT curtime(),
+  `date_request` timestamp NOT NULL DEFAULT   CURRENT_TIMESTAMP,
   `status` enum('pending','approved','declined') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
