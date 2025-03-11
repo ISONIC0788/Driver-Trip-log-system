@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2025 at 09:01 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Mar 09, 2025 at 02:52 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 5.6.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,8 +32,8 @@ CREATE TABLE `activity_logs` (
   `activity_id` int(11) NOT NULL,
   `item_id` int(11) DEFAULT NULL,
   `activity_name` varchar(150) NOT NULL,
-  `time_accured` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `time_accured` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -43,7 +44,7 @@ CREATE TABLE `activity_logs` (
 CREATE TABLE `categories` (
   `cat_id` int(11) NOT NULL,
   `category_type` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -54,7 +55,7 @@ CREATE TABLE `categories` (
 CREATE TABLE `drivers` (
   `driver_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `drivers`
@@ -74,7 +75,7 @@ INSERT INTO `drivers` (`driver_id`, `user_id`) VALUES
 CREATE TABLE `driver_categories` (
   `driver_id` int(11) NOT NULL,
   `cat_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,7 @@ CREATE TABLE `financial_record_trip` (
   `fuel_cost` decimal(12,3) NOT NULL,
   `maintenance_cost` decimal(12,3) DEFAULT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,7 @@ CREATE TABLE `location` (
   `province` varchar(255) NOT NULL,
   `district` varchar(150) NOT NULL,
   `address` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `location`
@@ -116,18 +117,6 @@ INSERT INTO `location` (`location_id`, `location_name`, `province`, `district`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logs`
---
-
-CREATE TABLE `logs` (
-  `log_id` int(11) NOT NULL,
-  `trip_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `maintenance`
 --
 
@@ -135,23 +124,9 @@ CREATE TABLE `maintenance` (
   `maintenance_id` int(11) NOT NULL,
   `vehicle_id` int(11) NOT NULL,
   `maintenance_type` varchar(150) NOT NULL,
-  `start_service_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `start_service_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `end_service_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `request_for_trip`
---
-
-CREATE TABLE `request_for_trip` (
-  `request_id` int(11) NOT NULL,
-  `trip_id` int(11) NOT NULL,
-  `request_by` varchar(150) DEFAULT NULL,
-  `date_request` timestamp NOT NULL DEFAULT curtime(),
-  `status` enum('pending','approved','declined') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -162,7 +137,7 @@ CREATE TABLE `request_for_trip` (
 CREATE TABLE `roles` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `roles`
@@ -175,27 +150,27 @@ INSERT INTO `roles` (`role_id`, `role_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trips`
---
-
-CREATE TABLE `trips` (
-  `vehicle_id` int(11) NOT NULL,
-  `trip_id` int(11) NOT NULL,
-  `driver_id` int(11) NOT NULL,
-  `departure_time` time NOT NULL,
-  `STATUS` enum('pending','approved','declined') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `trip_detail`
 --
 
 CREATE TABLE `trip_detail` (
   `trip_id` int(11) NOT NULL,
   `location_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trip_log`
+--
+
+CREATE TABLE `trip_log` (
+  `vehicle_id` int(11) NOT NULL,
+  `trip_id` int(11) NOT NULL,
+  `driver_id` int(11) NOT NULL,
+  `departure_time` time NOT NULL,
+  `STATUS` enum('pending','approved','declined') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -210,7 +185,7 @@ CREATE TABLE `users` (
   `password` varchar(150) NOT NULL,
   `email_address` varchar(150) NOT NULL,
   `phone_number` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -235,7 +210,7 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `password`, `email_ad
 CREATE TABLE `user_roles` (
   `user_id` int(11) NOT NULL,
   `role_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_roles`
@@ -258,15 +233,15 @@ CREATE TABLE `vehicle` (
   `model` varchar(150) DEFAULT NULL,
   `year` year(4) DEFAULT NULL,
   `status` enum('Available','in use','under maintenance') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `vehicle`
 --
 
 INSERT INTO `vehicle` (`vehicle_id`, `plate_number`, `vehicle_type`, `model`, `year`, `status`) VALUES
-(1, 'RAB1234', 'SUV', 'Toyota Prado', '2020', 'Available'),
-(2, 'RAD5678', 'Sedan', 'Mercedes C-Class', '2019', 'in use');
+(1, 'RAB1234', 'SUV', 'Toyota Prado', 2020, 'Available'),
+(2, 'RAD5678', 'Sedan', 'Mercedes C-Class', 2019, 'in use');
 
 --
 -- Indexes for dumped tables
@@ -312,24 +287,11 @@ ALTER TABLE `location`
   ADD PRIMARY KEY (`location_id`);
 
 --
--- Indexes for table `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`log_id`);
-
---
 -- Indexes for table `maintenance`
 --
 ALTER TABLE `maintenance`
   ADD PRIMARY KEY (`maintenance_id`),
   ADD KEY `vehicle_id` (`vehicle_id`);
-
---
--- Indexes for table `request_for_trip`
---
-ALTER TABLE `request_for_trip`
-  ADD PRIMARY KEY (`request_id`),
-  ADD KEY `trip_id` (`trip_id`);
 
 --
 -- Indexes for table `roles`
@@ -338,19 +300,19 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Indexes for table `trips`
---
-ALTER TABLE `trips`
-  ADD KEY `vehicle_id` (`vehicle_id`),
-  ADD KEY `trip_id` (`trip_id`),
-  ADD KEY `driver_id` (`driver_id`);
-
---
 -- Indexes for table `trip_detail`
 --
 ALTER TABLE `trip_detail`
   ADD PRIMARY KEY (`trip_id`),
   ADD KEY `location_id` (`location_id`);
+
+--
+-- Indexes for table `trip_log`
+--
+ALTER TABLE `trip_log`
+  ADD KEY `vehicle_id` (`vehicle_id`),
+  ADD KEY `trip_id` (`trip_id`),
+  ADD KEY `driver_id` (`driver_id`);
 
 --
 -- Indexes for table `users`
@@ -403,22 +365,10 @@ ALTER TABLE `location`
   MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `logs`
---
-ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
   MODIFY `maintenance_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `request_for_trip`
---
-ALTER TABLE `request_for_trip`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -474,24 +424,18 @@ ALTER TABLE `maintenance`
   ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`vehicle_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `request_for_trip`
---
-ALTER TABLE `request_for_trip`
-  ADD CONSTRAINT `request_for_trip_ibfk_1` FOREIGN KEY (`trip_id`) REFERENCES `trip_detail` (`trip_id`);
-
---
--- Constraints for table `trips`
---
-ALTER TABLE `trips`
-  ADD CONSTRAINT `trips_ibfk_1` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`vehicle_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `trips_ibfk_2` FOREIGN KEY (`trip_id`) REFERENCES `trip_detail` (`trip_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `trips_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`driver_id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `trip_detail`
 --
 ALTER TABLE `trip_detail`
   ADD CONSTRAINT `trip_detail_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`);
+
+--
+-- Constraints for table `trip_log`
+--
+ALTER TABLE `trip_log`
+  ADD CONSTRAINT `trip_log_ibfk_1` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`vehicle_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `trip_log_ibfk_2` FOREIGN KEY (`trip_id`) REFERENCES `trip_detail` (`trip_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `trip_log_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`driver_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_roles`
