@@ -162,7 +162,7 @@ $result_tripdetail = $conn->query($sqltripdetail);
                 <button type="submit" name="submit" class="btn btn-secondary p-2">Register </button>
               </div>
               <hr />
-              <h5 class="d-flex justify-content-center"> click here go back ?
+              <h5 class="d-flex justify-content-center"> click here go back ..?
                <!-- <a onclick="goBackOrHome()" class="">Go Back</a> -->
               </h5>
             </div>
