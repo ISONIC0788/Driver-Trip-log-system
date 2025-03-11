@@ -79,13 +79,13 @@ session_start();
           <i class="ti ti-apps"></i>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
+          <a href="./viewrequest.php" class="pc-link">
             <span class="pc-micon"><i class="ti ti-typography"></i></span>
             <span class="pc-mtext">view Request</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
+          <a href="#" class="pc-link">
             <span class="pc-micon"><i class="ti ti-typography"></i></span>
             <span class="pc-mtext">Approved</span>
           </a>

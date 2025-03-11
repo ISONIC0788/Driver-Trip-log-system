@@ -79,8 +79,8 @@ session_start();
           <i class="ti ti-apps"></i>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+          <a href="#" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-indent-increase"></i></span>
             <span class="pc-mtext">view Request</span>
           </a>
         </li>
@@ -298,14 +298,14 @@ session_start();
             <div class="row align-items-center">
               <div class="col">
                 <div class="page-header-title">
-                  <h5 class="m-b-10">Sample Page</h5>
+                  <h5 class="m-b-10">View  </h5>
                 </div>
               </div>
               <div class="col-auto">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
                   <li class="breadcrumb-item"><a href="javascript: void(0)">Other</a></li>
-                  <li class="breadcrumb-item" aria-current="page">Sample Page</li>
+                  <li class="breadcrumb-item" aria-current="page">View</li>
                 </ul>
               </div>
             </div>
@@ -320,12 +320,64 @@ session_start();
           <div class="col-sm-12">
             <div class="card">
               <div class="card-header">
-                <h5>Hello card</h5>
+                <h5>view  sended request</h5>
               </div>
               <div class="card-body">
                 <i class="ti ti-maximize"></i>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore error beatae assumenda aliquid? Iusto sequi repellendus
-                doloribus dicta, voluptate odit odio perferendis id ipsam similique quasi praesentium sint saepe? Obcaecati!
+                <!-- [the view of send requested ] -->
+                <table class ="table table-hover">
+                  <thead>
+                    <th>
+                    
+                      <td>#Id</td>
+                      <td>TRIP ID </td>
+                      <td>REQUESTED  BY</td>
+                      <td>DATE REQUESTED </td>
+                      <td>STATUS </td>
+                     
+                    </th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <?php
+                        $sqluser = "SELECT * FROM `request_for_trip`";
+                         // result for table user 
+
+                       $result2 = $conn->query($sqluser);
+                      if($result2->num_rows > 0 ){
+                          $id = 0;
+                           while($row2 = $result2->fetch_array()){
+                           $id ++;  // for counting user in table 
+
+                           // for result form database 
+                           $rowid = $row2[0];
+                         ?>
+                <tbody>
+                  <tr>
+                    <td>  </td>
+                    <td> <?php echo $id;?> </td>
+                    <td><?php echo $row2[1];?> </td>
+                    <td><?php echo $row2[2];?></td>
+                    <td><?php echo $row2[3];?></td>
+                    <td><?php echo "<span class ='text-warning'>".$row2[4]."</span>";?></td>
+                    <td>
+                    </tr>
+                    </tbody>
+                    
+         <?php
+          
+        }
+
+      }else{
+         echo "no result found!!";
+      }
+
+     
+     
+     ?>
+
+                 <!-- [end the view of send requested ] -->
+                  </table>
               </div>
             </div>
           </div>
