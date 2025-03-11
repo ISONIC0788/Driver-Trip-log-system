@@ -40,6 +40,9 @@ session_start();
 <!-- [Template CSS Files] -->
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 <link rel="stylesheet" href="../assets/css/style-preset.css" />
+<!-- [ajax live ] -->
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+       
 
   </head>
   <!-- [Head] end -->
@@ -85,9 +88,39 @@ session_start();
                 </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="email" />
+                <input type="email" class="form-control" id="floatingInput2 TypeSearch" placeholder="Email Address / Username" name="email" />
                 <label for="floatingInput2">Email Address </label>
               </div>
+              <div id="searchresult">
+
+              </div>
+                <!-- live time search email avaialable  -->
+          
+              <!-- [use link fo ajax ] -->
+               <!-- [] -->
+               <script>
+    $(document).ready(function (){
+        $('#floatingInput2').keyup(function (){
+          var input  = $(this).val();
+          alert(input);
+          if(input!=""){
+            //  $.ajax({
+            //   url:"./realtimevalidation/email.php",
+            //   method:"POST",
+            //   data={input:input},
+            //   success:function (data){
+            //     $('#searchresult').html(data);
+            //   }
+
+            //  });
+            console.log(input);
+          }
+        
+        });
+    });
+               </script>
+
+              <!-- [end for live searchr for email] -->
               <div class="form-floating mb-3">
                 <input type="phone" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="phonenumber"/>
                 <label for="floatingInput2">Phone Number</label>
@@ -147,6 +180,9 @@ session_start();
     <script>
       preset_change('preset-1');
     </script>
+
+  
+    
     
 
   </body>
