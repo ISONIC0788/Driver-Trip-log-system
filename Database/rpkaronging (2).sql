@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2025 at 04:06 PM
+-- Generation Time: Mar 12, 2025 at 06:26 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -126,6 +126,18 @@ INSERT INTO `financial_record_trip` (`record_id`, `trip_id`, `fuel_cost`, `menta
 (4, 4, '80000.00', '30000.00', 'Trip to Huye University'),
 (5, 5, '55000.00', '25000.00', 'Trip to Musanze Stadium');
 
+--
+-- Triggers `financial_record_trip`
+--
+DELIMITER $$
+CREATE TRIGGER `after_insert_financialrecord` AFTER INSERT ON `financial_record_trip` FOR EACH ROW BEGIN
+   
+   INSERT INTO activity_logs(item_id,activity_id) 
+   VALUES (NEW.record_id,'inserted in financial record');
+   END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -160,8 +172,17 @@ INSERT INTO `location` (`location_id`, `location_name`, `address`, `district`, `
 CREATE TABLE `logs` (
   `log_id` int(11) NOT NULL,
   `trip_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `requested_by` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`log_id`, `trip_id`, `requested_by`) VALUES
+(1, 3, '3'),
+(2, 1, '0'),
+(3, 5, 'Charlie Davis');
 
 -- --------------------------------------------------------
 
@@ -207,11 +228,25 @@ CREATE TABLE `request_for_trip` (
 --
 
 INSERT INTO `request_for_trip` (`request_id`, `trip_id`, `request_by`, `date_request`, `status`) VALUES
-(1, 1, 'Sangwa joseph', '2025-03-12 14:56:35', 'pending'),
+(1, 1, 'Sangwa joseph', '2025-03-12 14:56:35', 'approved'),
 (2, 2, 'hirwa edison ', '2025-03-12 14:56:35', 'pending'),
-(3, 3, 'Sebarera patrcick', '2025-03-12 14:56:35', 'pending'),
+(3, 3, 'Sebarera patrcick', '2025-03-12 14:56:35', 'approved'),
 (4, 4, 'ITUZE EBEDI Meleleck', '2025-03-12 14:56:35', 'pending'),
-(5, 5, 'Charlie Davis', '2025-03-12 14:56:35', 'pending');
+(5, 5, 'Charlie Davis', '2025-03-12 14:56:35', 'approved');
+
+--
+-- Triggers `request_for_trip`
+--
+DELIMITER $$
+CREATE TRIGGER `after_update_request` AFTER UPDATE ON `request_for_trip` FOR EACH ROW BEGIN
+   
+    IF NEW.status = 'approved' THEN
+        INSERT INTO logs(trip_id, requested_by) VALUES (NEW.trip_id, NEW.request_by);
+    END IF;
+    
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -234,6 +269,43 @@ INSERT INTO `roles` (`role_id`, `role_name`) VALUES
 (3, 'financial'),
 (4, 'other'),
 (5, 'Mechanic');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trips`
+--
+
+CREATE TABLE `trips` (
+  `vehicle_id` int(11) NOT NULL,
+  `trip_id` int(11) NOT NULL,
+  `driver_id` int(11) NOT NULL,
+  `departure_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `departure_location` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `trips`
+--
+
+INSERT INTO `trips` (`vehicle_id`, `trip_id`, `driver_id`, `departure_time`, `departure_location`) VALUES
+(1, 4, 1, '2025-03-12 06:00:00', 'Kigali'),
+(2, 5, 2, '2025-03-12 07:00:00', 'Musanze'),
+(3, 3, 3, '2025-03-12 08:30:00', 'Huye'),
+(4, 1, 4, '2025-03-12 10:00:00', 'Ruhengeri'),
+(5, 1, 5, '2025-03-12 12:00:00', 'Nyundo');
+
+--
+-- Triggers `trips`
+--
+DELIMITER $$
+CREATE TRIGGER `after_insert_trips` AFTER INSERT ON `trips` FOR EACH ROW BEGIN
+   
+   INSERT INTO activity_logs(item_id,activity_id) 
+   VALUES (NEW.trip_id,'insertion of trip');
+   END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -282,6 +354,26 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `password`, `email`, 
 (3, 'Alice', 'Johnson', '7bfd5078efc1b2b838e28a79574e2fc6bd9b7fb63edf789b3023ba12aff099fd', 'alice.johnson@example.com', '0789345678'),
 (4, 'Bob', 'Brown', '67823010ef4657dcae1dad584cdeafb3d226a7038793ab9b2f8ff2a142cc438e', 'bob.brown@example.com', '0789456789'),
 (5, 'Charlie', 'Davis', 'b87853026a7c62266e5788a55fc6c65faf6967886f54fffebd120be44d13b933', 'charlie.davis@example.com', '0789567890');
+
+--
+-- Triggers `users`
+--
+DELIMITER $$
+CREATE TRIGGER `after_creation_of_users` AFTER INSERT ON `users` FOR EACH ROW BEGIN
+   
+   INSERT INTO activity_logs(item_id,activity_id) 
+   VALUES (NEW.user_id,'creted user ');
+   END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_deletion_of_users` AFTER DELETE ON `users` FOR EACH ROW BEGIN
+   
+   INSERT INTO activity_logs(item_id,activity_id) 
+   VALUES (old.user_id,'deleted user ');
+   END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -402,6 +494,14 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`role_id`);
 
 --
+-- Indexes for table `trips`
+--
+ALTER TABLE `trips`
+  ADD KEY `trip_id` (`trip_id`),
+  ADD KEY `vehicle_id` (`vehicle_id`),
+  ADD KEY `driver_id` (`driver_id`);
+
+--
 -- Indexes for table `trip_detail`
 --
 ALTER TABLE `trip_detail`
@@ -467,7 +567,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `maintenance`
@@ -545,6 +645,14 @@ ALTER TABLE `maintenance`
 --
 ALTER TABLE `request_for_trip`
   ADD CONSTRAINT `request_for_trip_ibfk_1` FOREIGN KEY (`trip_id`) REFERENCES `trip_detail` (`trip_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `trips`
+--
+ALTER TABLE `trips`
+  ADD CONSTRAINT `trips_ibfk_1` FOREIGN KEY (`trip_id`) REFERENCES `trip_detail` (`trip_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `trips_ibfk_2` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`vehicle_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `trips_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`driver_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `trip_detail`
