@@ -150,7 +150,7 @@ CREATE TABLE `request_for_trip` (
   `trip_id` int(11) NOT NULL,
   `request_by` varchar(150) DEFAULT NULL,
   `date_request` timestamp NOT NULL DEFAULT   CURRENT_TIMESTAMP,
-  `status` enum('pending','approved','declined') DEFAULT NULL
+  `status` enum('pending','approved','declined') DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -257,7 +257,7 @@ CREATE TABLE `vehicle` (
   `vehicle_type` varchar(150) NOT NULL,
   `model` varchar(150) DEFAULT NULL,
   `year` year(4) DEFAULT NULL,
-  `status` enum('Available','in use','under maintenance') DEFAULT NULL
+  `status` enum('Available','in use','under maintenance') DEFAULT 'available'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
