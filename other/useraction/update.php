@@ -191,7 +191,7 @@ if (isset($_POST['submit'])){
   $phone_number = $_POST['phonenumber'];
 
   // $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES ( '$firt_name', '$last_name', '$user_password', '$user_email', '$phone_number')";
-  $sql = "UPDATE users SET first_name = ? , last_name = ? , password = ? , email_address =? , phone_number =? WHERE user_id = ?;";
+  $sql = "UPDATE users SET first_name = ? , last_name = ? , password = ? , email =? , phone_number =? WHERE user_id = ?;";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("sssssi",$firt_name,$last_name,$pass_hash,$user_email,$phone_number,$user_id);
 

@@ -393,10 +393,10 @@ session_start();
                   <tr>
                     <td>  </td>
                     <td> <?php echo $id;?> </td>
-                    <td><?php echo $row2["first_name"];?> </td>
-                    <td><?php echo $row2["last_name"];?></td>
-                    <td><?php echo $row2["email_address"];?></td>
-                    <td><?php echo $row2["phone_number"];?></td>
+                    <td><?php echo $row2[1];?> </td>
+                    <td><?php echo $row2[2];?></td>
+                    <td><?php echo $row2[4];?></td>
+                    <td><?php echo $row2[5];?></td>
                     <td>
                       <?php
  /// for delete 

@@ -288,11 +288,7 @@ session_start();
           <p class="text-muted">Project Admin</p>
           <hr />
           <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 280px)">
-            <div class="upgradeplan-block bg-light-warning rounded">
-              <h4>Explore full code</h4>
-              <p class="text-muted">Buy now to get full access of code files</p>
-              <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/" target="_blank" class="btn btn-warning">Buy Now</a>
-            </div>
+            
             <hr />
             <a href="../application/account-profile-v1.html" class="dropdown-item">
               <i class="ti ti-settings"></i>
@@ -353,7 +349,9 @@ session_start();
                   </div>
                 </div>
                 <span class="text-white d-block f-34 f-w-500 my-2">
-                  1350
+                  <?php
+                   
+                  ?>
                   <i class="ti ti-arrow-up-right-circle opacity-50"></i>
                 </span>
                 <p class="mb-0 opacity-50">Total Pending </p>
@@ -515,7 +513,7 @@ session_start();
         $result2 = $conn->query($sqluser);
         if($result2->num_rows > 0 ){
           $id = 0;
-          while($row2 = $result2->fetch_assoc()){
+          while($row2 = $result2->fetch_array()){
             $id ++;  // for counting user in table 
 
         // for result form database 
@@ -523,10 +521,10 @@ session_start();
           <tbody>
                   <tr>
                     <td> <?php echo $id;?> </td>
-                    <td><?php echo $row2["first_name"];?> </td>
-                    <td><?php echo $row2["last_name"];?></td>
-                    <td><?php echo $row2["email_address"];?></td>
-                    <td><?php echo $row2["phone_number"];?></td>
+                    <td><?php echo $row2[1];?> </td>
+                    <td><?php echo $row2[2];?></td>
+                    <td><?php echo $row2[4];?></td>
+                    <td><?php echo $row2[5];?></td>
            </tr>
       </tbody>
 

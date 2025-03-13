@@ -378,7 +378,7 @@ session_start();
                   <tbody>
                     <tr>
                       <?php
-                        $sqluser = "SELECT * FROM vehicle";
+                        $sqluser = "SELECT * FROM vehicles";
                          // result for table user 
 
                        $result2 = $conn->query($sqluser);

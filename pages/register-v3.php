@@ -166,7 +166,7 @@ if (isset($_POST['submit'])){
   $phone_number = $_POST['phonenumber'];
 
   // $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES ( '$firt_name', '$last_name', '$user_password', '$user_email', '$phone_number')";
-  $sql = "INSERT INTO users ( first_name, last_name, password, email_address, phone_number) VALUES (?,?,?,?,?)";
+  $sql = "INSERT INTO users ( first_name, last_name, password, email, phone_number) VALUES (?,?,?,?,?)";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("sssss",$firt_name,$last_name,$pass_hash,$user_email,$phone_number);
 

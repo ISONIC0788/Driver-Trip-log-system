@@ -171,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             FROM users 
             INNER JOIN user_roles ON users.user_id = user_roles.user_id 
             INNER JOIN roles ON roles.role_id = user_roles.role_id 
-            WHERE users.email_address = ?";
+            WHERE users.email = ?";
      $stmt = $conn->prepare($sql);
      $stmt->bind_param("s",$username);
      $stmt->execute();
