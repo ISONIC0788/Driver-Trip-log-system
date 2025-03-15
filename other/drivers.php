@@ -359,7 +359,7 @@ session_start();
           <div class="col-sm-12">
             <div class="card">
               <div class="card-header">
-                <h5>Hello card</h5>
+                <h5>Driver views </h5>
               </div>
               <div class="card-body">
                   <!-- [tables and data diplay ] -->
@@ -433,8 +433,8 @@ session_start();
         <div class="row">
           <div class="col-sm-6 my-1">
             <p class="m-0">
-              Berry &#9829; crafted by Team
-              <a href="https://themeforest.net/user/codedthemes" target="_blank">CodedThemes</a>
+              Berry &#9829; Develped by Team
+              <a href="https://themeforest.net/user/codedthemes" target="_blank">Ebedi Meleck</a>
             </p>
           </div>
           <div class="col-sm-6 ms-auto my-1">
