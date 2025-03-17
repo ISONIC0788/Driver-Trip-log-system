@@ -92,7 +92,7 @@ $result_tripdetail = $conn->query($sqltripdetail);
                           while ($row = $result_vehicle->fetch_array()) {
                           ?>
                           <!-- [php to display vehicle id available] -->
-                         <option value="<?php echo $row[0]?>"><?php echo $row[0].":=:".$row[2]?></option>
+                         <option value="<?php echo $row[0]?>"><?php echo $row[0].":=>:".$row[2]?></option>
                           <!-- [php to display vehicle id available] -->
                           <?php
                           }
@@ -147,8 +147,8 @@ $result_tripdetail = $conn->query($sqltripdetail);
            </div>
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="depturelocation"/>
-                <label for="floatingInput2">Depature Location</label>
+                <input type="time" class="form-control" id="floatingInput2" placeholder="Email Address / Username" name="timedepture"/>
+                <label for="floatingInput2">Depature Time</label>
               </div>
               <!-- [this is for status] -->
               <!-- <div class="form-floating mb-3">
@@ -220,14 +220,13 @@ if (isset($_POST['submit'])){
   $vehicle_id= $_POST['vehicleid'];
   $trip_id = $_POST['tripid'];
   $driver_id = $_POST['driverid'];
-  $depturelocation = $_POST['depturelocation'];
-  // $status = "pending";
+  $time = $_POST['timedepture'];
+  $status = "pending";
 
 
-  // $sqlinseret = "INSERT INTO trip_log(vehicle_id,trip_id,driver_id, departure_time , STATUS) VALUES(?,?,?,?,?);";
-    $sqlinsert ="INSERT INTO `trips` (`vehicle_id`, `trip_id`, `driver_id`, `departure_location`) VALUES (?,?,?,?)";
-    $stmt = $conn->prepare($sqlinsert);
-    $stmt->bind_param("iiis",$vehicle_id,$trip_id,$driver_id,$depturelocation);
+  $sqlinseret = "INSERT INTO trip_log(vehicle_id,trip_id,driver_id, departure_time , STATUS) VALUES(?,?,?,?,?);";
+    $stmt = $conn->prepare($sqlinseret);
+    $stmt->bind_param("iiiss",$vehicle_id,$trip_id,$driver_id,$time,$status);
   if($stmt->execute()){
      echo "Trip is add successfull";
   }else{

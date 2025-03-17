@@ -403,7 +403,7 @@ session_start();
  /// for delete 
                   echo "<a href='useraction/update.php?id=$rowid' class='btn btn-warning' onclick='return confirm(Are you sure you want to delete this user?);'>
                   <i class='bi bi-pencil-square'></i></a>";
-                       echo "<a href='useraction/delete.php?id=$rowid' class='btn btn-danger'>
+                       echo "<a href='tripaction/delete.php?id=$rowid' class='btn btn-danger'>
                   <i class='bi bi-trash'></i></a>";    
                       ?>
                     </td>
