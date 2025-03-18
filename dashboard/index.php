@@ -342,18 +342,27 @@ session_start();
                         <i class="ti ti-dots"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end">
-                        <li><button class="dropdown-item">Import Card</button></li>
-                        <li><button class="dropdown-item">Export</button></li>
+                        <li><a href="../other/viewrequestfortrips.php"><button class="dropdown-item">View Pending Trip </button></a> </li>
+                        <li><button class="dropdown-item">View</button></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <span class="text-white d-block f-34 f-w-500 my-2">
+                
                   <?php
-                   
+                   $sqlcount = "SELECT COUNT(*) as Total_panding FROM request_for_trip WHERE status = 'pending'";
+                   $result3 = $conn->query($sqlcount);
+                   if($row3 = $result3->fetch_array()){
+                    ?>
+                      <span class="text-white d-block f-34 f-w-500 my-2">
+                      <?php echo $row3[0];?>
+                    <i class="ti ti-arrow-up-right-circle opacity-50"></i>
+                    <?php
+                      
+                   }
                   ?>
-                  <i class="ti ti-arrow-up-right-circle opacity-50"></i>
-                </span>
+                
+                 </span>
                 <p class="mb-0 opacity-50">Total Pending </p>
               </div>
             </div>
