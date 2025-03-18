@@ -290,7 +290,7 @@ session_start();
         <div class="dropdown-header">
           <h4>
             Good Morning,
-            <span class="small text-muted">John Doe</span>
+            <span class="small text-muted"><?php if($_SESSION) {print_r($_SESSION['username']);} ?></span>
           </h4>
           <p class="text-muted">Project Admin</p>
           <hr />
