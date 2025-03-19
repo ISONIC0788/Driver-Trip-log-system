@@ -1,6 +1,10 @@
 <?php
 
 include "../pages/conn.php";
+// using for qrcode 
+include 'phpqrcode/qrlib.php';
+// 
+
 session_start();
 
 ?>
@@ -424,7 +428,9 @@ session_start();
                       <td>#id</td>
                       <td>Full Name</td>
                       <td>Request Date</td>
+                      
                       <td>Status </td>
+                      <td>Download</td> 
                       <td>Action </td>
                     </th>
                   </thead>
@@ -434,8 +440,21 @@ session_start();
                   $resultpending =  $conn->query($sqlpending);
                    while($rows1 = $resultpending->fetch_array()){
                     $rowid = $rows1[0];
+
+                    //  user name using qrcode 
+                    // $username = 
+                     $username = $rows1[2];
+                     $status = $rows1[4];
+
+                     // data from qrcode 
+
+                     $data = "Username:\n$username\nApproved Name:\n$status";
+                     $file = "qrphoto/approved_qrcode$rowid.png";
+                     
+                     QRcode::png($data,$file,QR_ECLEVEL_L , 10 ,2 );
+
                     ?>
-                    <tbody>
+                    <tbody> 
                   <tr>
                     
                     <td>  </td>
@@ -444,6 +463,10 @@ session_start();
                     <td><?php echo $rows1[2];?></td>
                     <td><?php echo $rows1[3];?></td>
                     <td style ='color: green;' ><?php  echo $rows1[4];?></td>
+                    <td>
+                      <a href="<?php echo $file;?>" download class="">
+                        <i class="bi bi-download"></i> 
+                     </a></td>
                     <td>
                       <?php
  /// for delete 
