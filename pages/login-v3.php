@@ -194,7 +194,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         }else if($row['role_name']=='financial'){
             //  for redicting  financial dashboard 
-          // echo "<script>window.location ='../request/'</script>";
+          echo "<script>window.location ='../request/'</script>";
 
         }else {   // if($row['role_name']=='driver')
           //  for redicting  driver dashboard 
