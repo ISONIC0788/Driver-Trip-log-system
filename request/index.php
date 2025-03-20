@@ -41,6 +41,10 @@ session_start();
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 <link rel="stylesheet" href="../assets/css/style-preset.css" />
 
+<!-- [cdn boostarp] -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
@@ -69,7 +73,7 @@ session_start();
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link"
+          <a href="./index.php" class="pc-link"
             ><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Default</span></a
           >
         </li>
@@ -80,17 +84,22 @@ session_start();
         </li>
         <li class="pc-item">
           <a href="./viewrequest.php" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+            <span class="pc-micon"><i class="bi bi-hourglass-split "></i></span>
             <span class="pc-mtext">view Request</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="#" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-            <span class="pc-mtext">Approved</span>
+          <a href="./viewapproved.php" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-list-check"></i></span>
+            <span class="pc-mtext"> View Approved</span>
           </a>
         </li>
-      
+        <li class="pc-item">
+          <a href="./viewdeclined.php" class="pc-link">
+            <span class="pc-micon"><i class="bi-x-circle-fill"></i></span>
+            <span class="pc-mtext"> View Declined</span>
+          </a>
+        </li>
 
         <li class="pc-item pc-caption">
           <label>Pages</label>

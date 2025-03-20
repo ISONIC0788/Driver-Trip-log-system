@@ -40,9 +40,10 @@ session_start();
 <!-- [Template CSS Files] -->
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 <link rel="stylesheet" href="../assets/css/style-preset.css" />
-<!-- [boost start cdn ] -->
+<!-- [boostart  cdn] -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
@@ -93,7 +94,7 @@ session_start();
           </a>
         </li>
         <li class="pc-item">
-          <a href="./viewdeclined.php" class="pc-link">
+          <a href="#" class="pc-link">
             <span class="pc-micon"><i class="bi-x-circle-fill"></i></span>
             <span class="pc-mtext"> View Declined</span>
           </a>
@@ -331,7 +332,7 @@ session_start();
                   <tbody>
                     <tr>
                       <?php
-                        $sqluser = "SELECT * FROM `request_for_trip` WHERE status = 'pending'";
+                        $sqluser = "SELECT * FROM `request_for_trip` WHERE status = 'declined'";
                          // result for table user 
 
                        $result2 = $conn->query($sqluser);
@@ -350,7 +351,7 @@ session_start();
                     <td><?php echo $row2[1];?> </td>
                     <td><?php echo $row2[2];?></td>
                     <td><?php echo $row2[3];?></td>
-                    <td><?php echo "<span class ='text-warning'>".$row2[4]."</span>";?></td>
+                    <td><?php echo "<span class ='text-danger'>".$row2[4]."</span>";?></td>
                     <td>
                     </tr>
                     </tbody>
