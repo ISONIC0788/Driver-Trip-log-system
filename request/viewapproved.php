@@ -326,7 +326,9 @@ session_start();
                       <td>TRIP ID </td>
                       <td>REQUESTED  BY</td>
                       <td>DATE REQUESTED </td>
+                      <td>VIEW APPROVED</td>
                       <td>STATUS </td>
+
                      
                     </th>
                   </thead>
@@ -344,6 +346,8 @@ session_start();
 
                            // for result form database 
                            $rowid = $row2[0];
+                           $file = "../other/qrphoto/approved_qrcode$rowid.png";
+                          //  $file ="../other/qrphoto/approved_qrcode1.png"
                          ?>
                 <tbody>
                   <tr>
@@ -352,6 +356,11 @@ session_start();
                     <td><?php echo $row2[1];?> </td>
                     <td><?php echo $row2[2];?></td>
                     <td><?php echo $row2[3];?></td>
+                    <td>
+                      <a href="<?php echo $file;?>" download class="">
+                        <i class="bi bi-download"></i> 
+                      </a>
+                    </td>
                     <td><?php echo "<span class ='text-success'>".$row2[4]."</span>";?></td>
                     <td>
                     </tr>
