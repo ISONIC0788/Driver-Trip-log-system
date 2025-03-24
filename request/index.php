@@ -321,14 +321,39 @@ session_start();
                 <h5>Section for Request For trip </h5>
               </div>
               <div class="card-body">
-                <i class="ti ti-maximize">Hey User you can request trip her by </i>
+                <h1>This is list of step to for apply for trip</h1> 
                 <!-- [form request for trip ] -->
-                  <dt>Step 1</dt>
-                  <dd>You must Enter location  of trip </dd>
+                  <!-- <dt>Step 1</dt>
+                  <dd> </dd>
                   <dt>Step 2</dt>
-                  <dd>You must Enter trip detail id </dd>
+                  <dd> </dd>
                   <dt>Step 2</dt>
-                  <dd>You must Enter request for trip </dd>
+                  <dd> </dd> -->
+
+                  <div class="card">
+                    <div class="card-header">
+                    <h5>Step 1</h5>
+                    </div>
+                    <div class="card-body">
+                    <p>You must Enter location  of trip</p> 
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                    <h5>Step 2</h5>
+                    </div>
+                    <div class="card-body">
+                    <p>You must Enter trip detail id</p> 
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">
+                    <h5>Step 3</h5>
+                    </div>
+                    <div class="card-body">
+                    <p>You must Enter request for trip</p> 
+                    </div>
+                  </div>
 
 
                    <!-- [start buttoon to start] -->
