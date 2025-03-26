@@ -24,7 +24,7 @@ session_start();
     <meta name="author" content="codedthemes" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon" />
+    <link rel="icon" href="../assets/images/bus.png" type="image/x-icon" />
  <!-- [Google Font] Family -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" id="main-font-link" />
 <!-- [phosphor Icons] https://phosphoricons.com/ -->
@@ -62,7 +62,7 @@ session_start();
           <div class="card mt-5">
             <div class="card-body">
               <a href="#" class="d-flex justify-content-center mt-3">
-                <img src="../assets/images/logo-dark.svg" alt="image" class="img-fluid brand-logo" />
+              <img src="../assets/images/bus.png" alt="" class="logo " height="50px"  width="50px"/> <b>Driver Trip</b> 
               </a>
               <div class="row">
                 <div class="d-flex justify-content-center">

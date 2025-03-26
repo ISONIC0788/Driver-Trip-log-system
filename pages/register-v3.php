@@ -52,9 +52,9 @@
         <div class="auth-form">
           <div class="card mt-5">
             <div class="card-body">
-              <a href="#" class="d-flex justify-content-center mt-3">
-                <img src="../assets/images/logo-dark.svg" alt="image" class="img-fluid brand-logo" />
-              </a>
+              <a href="../" class="d-flex justify-content-center mt-3">
+              <img src="../assets/images/bus.png" alt="" class="logo " height="50px"  width="70px"/> <b>Driver Trip</b> 
+             </a>
               <div class="row">
                 <div class="d-flex justify-content-center">
                   <div class="auth-header">
