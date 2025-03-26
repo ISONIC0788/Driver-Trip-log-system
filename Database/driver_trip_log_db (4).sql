@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2025 at 08:42 PM
+-- Generation Time: Mar 26, 2025 at 10:08 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -84,9 +84,7 @@ CREATE TABLE `drivers` (
 
 INSERT INTO `drivers` (`driver_id`, `user_id`) VALUES
 (1, 2),
-(2, 3),
-(3, 4),
-(4, 5);
+(2, 3);
 
 -- --------------------------------------------------------
 
@@ -105,9 +103,7 @@ CREATE TABLE `driver_categories` (
 
 INSERT INTO `driver_categories` (`driver_id`, `cat_id`) VALUES
 (1, 1),
-(2, 2),
-(3, 3),
-(4, 4);
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -313,8 +309,7 @@ CREATE TABLE `trips` (
 
 INSERT INTO `trips` (`vehicle_id`, `trip_id`, `driver_id`, `departure_time`, `departure_location`) VALUES
 (1, 4, 1, '2025-03-12 06:00:00', 'Kigali'),
-(2, 5, 2, '2025-03-12 07:00:00', 'Musanze'),
-(3, 3, 3, '2025-03-12 08:30:00', 'Huye');
+(2, 5, 2, '2025-03-12 07:00:00', 'Musanze');
 
 --
 -- Triggers `trips`
@@ -396,8 +391,7 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `password`, `email`, 
 (4, 'Bob', 'Brown', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'bob.brown@example.com', '0789456789'),
 (5, 'Charlie', 'Davis', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'charlie.davis@example.com', '0789567890'),
 (6, 'ebedimeleck', 'ITUZE', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ituze@gmail.com', '0788459217'),
-(8, 'Shishoza ', 'were', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'shishoza@gmail.com', '078808888'),
-(9, 'Kalisa', 'Hellow', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'demo23@gmail.com', '0788888886');
+(8, 'Shishoza ', 'were', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'shishoza@gmail.com', '078808888');
 
 --
 -- Triggers `users`
@@ -407,14 +401,6 @@ CREATE TRIGGER `after_creation_of_users` AFTER INSERT ON `users` FOR EACH ROW BE
    
    INSERT INTO activity_logs(item_id ,activity_name) 
    VALUES (NEW.user_id,'creted user ');
-   END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `after_deletion_of_users` AFTER DELETE ON `users` FOR EACH ROW BEGIN
-   
-   INSERT INTO activity_logs(item_id,activity_id) 
-   VALUES (old.user_id,'deleted user ');
    END
 $$
 DELIMITER ;
@@ -441,8 +427,7 @@ INSERT INTO `user_roles` (`role_id`, `user_id`) VALUES
 (3, 4),
 (4, 5),
 (1, 6),
-(1, 1),
-(3, 9);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -694,7 +679,7 @@ ALTER TABLE `logs`
 -- Constraints for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`vehicle_id`);
+  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`vehicle_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `request_for_trip`
@@ -720,8 +705,8 @@ ALTER TABLE `trip_detail`
 -- Constraints for table `user_roles`
 --
 ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
-  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
