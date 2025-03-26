@@ -399,9 +399,9 @@ session_start();
                     <td>
                       <?php
  /// for delete 
-                  echo "<a href='useraction/update.php?id=$rowid' class='' onclick='return confirm(Are you sure you want to delete this user?);'>
+                  echo "<a href='mentainanceaction/update.php?id=$rowid' class='' onclick='return confirm(Are you sure you want to delete this user?);'>
                   <i class='bi bi-pencil-square' style ='color:orange'></i></a>";
-                       echo "<a href='useraction/delete.php?id=$rowid' class='' style ='color: red'>
+                       echo "<a href='mentainanceaction/delete.php?id=$rowid' class='' style ='color: red'>
                   <i class='bi bi-trash'></i></a>";    
                       ?>
                     </td>
