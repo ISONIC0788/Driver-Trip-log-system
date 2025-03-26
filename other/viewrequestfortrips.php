@@ -68,8 +68,8 @@ session_start();
     <div class="m-header">
       <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="../assets/images/logo-dark.svg" alt="" class="logo logo-lg" />
-      </a>
+        <img src="../assets/images/bus.png" alt="" class="logo " height="50px"  width="50px"/> <b>Driver Trip</b> 
+        </a>
     </div>
     <div class="navbar-content">
       <ul class="pc-navbar">
@@ -136,18 +136,6 @@ session_start();
         <li class="pc-item pc-caption">
           <label>Pages</label>
           <i class="ti ti-news"></i>
-        </li>
-        <li class="pc-item">
-          <a class="pc-link" target="_blank" href="../pages/login-v3.html">
-            <span class="pc-micon"><i class="ti ti-lock"></i></span>
-            <span class="pc-mtext">Login</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="../pages/register-v3.html" target="_blank" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
-            <span class="pc-mtext">Register</span>
-          </a>
         </li>
 
         <li class="pc-item pc-caption">
