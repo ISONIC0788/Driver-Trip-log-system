@@ -67,8 +67,8 @@ session_start();
     <div class="m-header">
       <a href="../dashboard/index.php" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="../assets/images/logo-dark.svg" alt="" class="logo logo-lg" />
-      </a>
+        <img src="../assets/images/bus.png" alt="" class="logo " height="50px"  width="50px"/> <b>Driver Trip</b> 
+        </a>
     </div>
     <div class="navbar-content">
       <ul class="pc-navbar">
@@ -399,9 +399,9 @@ session_start();
                     <td>
                       <?php
  /// for delete 
-                  echo "<a href='useraction/update.php?id=$rowid' class='btn btn-warning' onclick='return confirm(Are you sure you want to delete this user?);'>
-                  <i class='bi bi-pencil-square'></i></a>";
-                       echo "<a href='useraction/delete.php?id=$rowid' class='btn btn-danger'>
+                  echo "<a href='useraction/update.php?id=$rowid' class='' onclick='return confirm(Are you sure you want to delete this user?);'>
+                  <i class='bi bi-pencil-square' style ='color:orange'></i></a>";
+                       echo "<a href='useraction/delete.php?id=$rowid' class='' style ='color: red'>
                   <i class='bi bi-trash'></i></a>";    
                       ?>
                     </td>

@@ -66,7 +66,7 @@ session_start();
     <div class="m-header">
       <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="../assets/images/logo-dark.svg" alt="" class="logo logo-lg" />
+        <img src="../assets/images/bus.png" alt="" class="logo " height="50px"  width="50px"/> <b>Driver Trip</b> 
       </a>
     </div>
     <div class="navbar-content">
@@ -364,10 +364,9 @@ session_start();
                     <th>
                     
                       <td>#id</td>
-                      <td>Vehicle Id </td>
-                      <td>Maintaince Type</td>
-                      <td>Start Service Date </td>
-                      <td>End Service Date</td>
+                      <td>Item Id  </td>
+                      <td>Activity Occured</td>
+                      <td>Time taken </td>
                       <td>Action </td>
                     </th>
                   </thead>
@@ -397,9 +396,9 @@ session_start();
                     <td>
                       <?php
  /// for delete 
-                  echo "<a href='useraction/update.php?id=$rowid' class='btn btn-warning' onclick='return confirm(Are you sure you want to delete this user?);'>
+                  echo "<a href='useraction/update.php?id=$rowid' class='' style ='color: orange' onclick='return confirm(Are you sure you want to delete this user?);'>
                   <i class='bi bi-pencil-square'></i></a>";
-                       echo "<a href='useraction/delete.php?id=$rowid' class='btn btn-danger'>
+                       echo "<a href='useraction/delete.php?id=$rowid' class='' style ='color: red'>
                   <i class='bi bi-trash'></i></a>";    
                       ?>
                     </td>
