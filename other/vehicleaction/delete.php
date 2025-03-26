@@ -3,7 +3,7 @@ include "../../pages/conn.php";
 if(isset($_GET['id'])){
     $user_id = $_GET['id'];
     // delete table 
-    $sqldelete= "DELETE FROM vehicle WHERE vehicle_id = ?";
+    $sqldelete= "DELETE FROM vehicles WHERE vehicle_id = ?";
     $stmt = $conn->prepare($sqldelete);
     $stmt ->bind_param("i",$user_id);
 

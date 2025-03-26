@@ -27,7 +27,7 @@ session_start();
     <meta name="author" content="codedthemes" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="../assets/images/bus.png" type="image/x-icon" />
+     <link rel="icon" href="../assets/images/bus.png" type="image/x-icon" />
  <!-- [Google Font] Family -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" id="main-font-link" />
 <!-- [phosphor Icons] https://phosphoricons.com/ -->
@@ -444,8 +444,7 @@ session_start();
           <div class="col-sm-6 my-1">
             <p class="m-0">
               Berry &#9829; crafted by Team
-              <a href="https://themeforest.net/user/codedthemes" target="_blank">CodedThemes</a>
-            </p>
+              <a href="https://isonic0788.github.io/myProject_one/" target="_blank">Ebedi</a> </p>
           </div>
           <div class="col-sm-6 ms-auto my-1">
             <ul class="list-inline footer-link mb-0 justify-content-sm-end d-flex">

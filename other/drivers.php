@@ -434,7 +434,7 @@ session_start();
           <div class="col-sm-6 my-1">
             <p class="m-0">
               Berry &#9829; Develped by Team
-              <a href="https://themeforest.net/user/codedthemes" target="_blank">Ebedi Meleck</a>
+              <a href="https://isonic0788.github.io/myProject_one/" target="_blank">Ebedi</a>
             </p>
           </div>
           <div class="col-sm-6 ms-auto my-1">
