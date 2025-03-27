@@ -73,11 +73,11 @@ ob_start();
 
   // close connection
 $conn->close();
-  $filename = 'Driver_Report.docx';
+  $filename = 'User_Report.docx';
 
 
   header("Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-  header("Content-Disposition: attachment; filename=Driver_Report.docx");
+  header("Content-Disposition: attachment; filename=User_Report.docx");
   header('Cache-Control: max-age=0');
   
 
