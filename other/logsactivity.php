@@ -355,10 +355,7 @@ session_start();
           <div class="col-sm-12">
             <div class="card">
               <div class="card-header">
-                <h5>Activity Occured Records</h5>
-                <p> <i class="bi bi-file-earmark-word-fill col-3" style='color:blue'></i> Word Doc 2007 
-                  <a href="./WordDownload/logsWord2007.php"><i class="ti ti-download" title='Download Word Doc'></i></a> </p>
-              
+                <h5>Hello card</h5>
               </div>
               <div class="card-body">
                 <!-- [tables and data diplay ] -->

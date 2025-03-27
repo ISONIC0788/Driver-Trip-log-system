@@ -8,7 +8,7 @@ session_start();
 <html lang="en">
   <!-- [Head] start -->
   <head>
-    <title>Admin | Dashboard </title>
+    <title>Dashboard | Berry Dashboard Template</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -673,8 +673,8 @@ session_start();
           <div class="col-sm-6 my-1">
             <p class="m-0">
               Berry &#9829; crafted by Team
-              <a href="https://isonic0788.github.io/myProject_one/" target="_blank">Ebedi</a>
-              </p>
+              <a href="https://themeforest.net/user/codedthemes" target="_blank">CodedThemes</a>
+            </p>
           </div>
           <div class="col-sm-6 ms-auto my-1">
             <ul class="list-inline footer-link mb-0 justify-content-sm-end d-flex">
