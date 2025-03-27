@@ -8,7 +8,7 @@ session_start();
   <!-- [Head] start -->
 
   <head>
-    <title>Sample Page | Berry Dashboard Template</title>
+    <title>Admin Page | Log Activity Record</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
