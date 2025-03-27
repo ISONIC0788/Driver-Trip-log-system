@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'fc732816fc317a336f128c4eed2072cef25e3aa1',
+        'reference' => 'ce4e6976d0d5db8cca5c023e39e67da33467db72',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'fc732816fc317a336f128c4eed2072cef25e3aa1',
+            'reference' => 'ce4e6976d0d5db8cca5c023e39e67da33467db72',
             'dev_requirement' => false,
         ),
         'laminas/laminas-escaper' => array(

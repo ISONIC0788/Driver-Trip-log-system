@@ -1,20 +1,9 @@
-<?php
-
-include "../pages/conn.php";
-// using for qrcode 
-include 'phpqrcode/qrlib.php';
-// 
-
-session_start();
-
-?>
-
 <!doctype html>
 <html lang="en">
   <!-- [Head] start -->
 
   <head>
-    <title>Admin Pages | Requested Records</title>
+    <title>Sample Page | Berry Dashboard Template</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -30,7 +19,7 @@ session_start();
     <meta name="author" content="codedthemes" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="../assets/images/bus.png" type="image/x-icon" />
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon" />
  <!-- [Google Font] Family -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" id="main-font-link" />
 <!-- [phosphor Icons] https://phosphoricons.com/ -->
@@ -50,11 +39,8 @@ session_start();
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
-   <!-- for the icon boost  -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-  <body>
+  <body data-pc-preset="preset-1" data-pc-sidebar-theme="light" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
     <!-- [ Pre-loader ] start -->
 <div class="loader-bg">
   <div class="loader-track">
@@ -68,8 +54,8 @@ session_start();
     <div class="m-header">
       <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="../assets/images/bus.png" alt="" class="logo " height="50px"  width="50px"/> <b>Driver Trip</b> 
-        </a>
+        <img src="../assets/images/logo-dark.svg" alt="" class="logo logo-lg" />
+      </a>
     </div>
     <div class="navbar-content">
       <ul class="pc-navbar">
@@ -78,7 +64,7 @@ session_start();
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
-          <a href="../dashboard/index.php" class="pc-link"
+          <a href="../dashboard/index.html" class="pc-link"
             ><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Default</span></a
           >
         </li>
@@ -88,54 +74,39 @@ session_start();
           <i class="ti ti-apps"></i>
         </li>
         <li class="pc-item">
-          <a href="../other/users.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-person-lines-fill"></i></span>
-            <span class="pc-mtext">Users</span>
+          <a href="../elements/bc_typography.html" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-typography"></i></span>
+            <span class="pc-mtext">Typography</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="./drivers.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-people"></i></span>
-            <span class="pc-mtext">Drivers</span>
+          <a href="../elements/bc_color.html" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
+            <span class="pc-mtext">Color</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="./vehicles.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-bus-front"></i></span>
-            <span class="pc-mtext">Vehicles</span>
+          <a href="../elements/icon-tabler.html" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-plant-2"></i></span>
+            <span class="pc-mtext">Icons</span>
           </a>
         </li>
-        <li class="pc-item">
-          <a href="./trip.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-geo-alt"></i></span>
-            <span class="pc-mtext">Trips</span>
-          </a>
-        </li>
-        
-        <li class="pc-item">
-          <a href="./financial.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-bar-chart"></i></span>
-            <span class="pc-mtext">Financial</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="./mentainace.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-wrench"></i> </span>
-            <span class="pc-mtext">Mentainance</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="./logsactivity.php" class="pc-link">
-            <span class="pc-micon"><i class="bi bi-clock-history"></i></span>
-            <span class="pc-mtext">logs</span>
-          </a>
-        </li>
-      
-
 
         <li class="pc-item pc-caption">
           <label>Pages</label>
           <i class="ti ti-news"></i>
+        </li>
+        <li class="pc-item">
+          <a class="pc-link" target="_blank" href="../pages/login-v3.html">
+            <span class="pc-micon"><i class="ti ti-lock"></i></span>
+            <span class="pc-mtext">Login</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="../pages/register-v3.html" target="_blank" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
+            <span class="pc-mtext">Register</span>
+          </a>
         </li>
 
         <li class="pc-item pc-caption">
@@ -147,8 +118,61 @@ session_start();
             ><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Menu levels</span
             ><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
-          
-     
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
+            <li class="pc-item pc-hasmenu">
+              <a href="#!" class="pc-link"
+                >Level 2.2<span class="pc-arrow"><i data-feather="chevron-right"></i></span
+              ></a>
+              <ul class="pc-submenu">
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
+                <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link"
+                    >Level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
+                  ></a>
+                  <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="pc-item pc-hasmenu">
+              <a href="#!" class="pc-link"
+                >Level 2.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
+              ></a>
+              <ul class="pc-submenu">
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
+                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
+                <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link"
+                    >Level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span
+                  ></a>
+                  <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
+                    <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="pc-item">
+          <a href="../other/sample-page.html" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-brand-chrome"></i></span>
+            <span class="pc-mtext">Sample page</span>
+          </a>
+        </li>
+
+      </ul>
+      <div class="pc-navbar-card bg-primary rounded">
+        <h4 class="text-white">Explore full code</h4>
+        <p class="text-white opacity-75">Buy now to get full access of code files</p>
+        <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/" target="_blank" class="btn btn-light text-primary">
+          Buy Now
+        </a>
+      </div>
       <div class="w-100 text-center">
         <div class="badge theme-version badge rounded-pill bg-light text-dark f-12"></div>
       </div>
@@ -276,7 +300,7 @@ session_start();
         <div class="dropdown-header">
           <h4>
             Good Morning,
-            <span class="small text-muted"><?php if($_SESSION) {print_r($_SESSION['username']);} ?></span>
+            <span class="small text-muted">John Doe</span>
           </h4>
           <p class="text-muted">Project Admin</p>
           <hr />
@@ -320,14 +344,14 @@ session_start();
             <div class="row align-items-center">
               <div class="col">
                 <div class="page-header-title">
-                  <h5 class="m-b-10">View Abaut Request For Trips</h5>
+                  <h5 class="m-b-10">Sample Page</h5>
                 </div>
               </div>
               <div class="col-auto">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-                  <li class="breadcrumb-item"><a href="javascript: void(0)">Basic UI</a></li>
-                  <li class="breadcrumb-item" aria-current="page">Requested</li>
+                  <li class="breadcrumb-item"><a href="javascript: void(0)">Other</a></li>
+                  <li class="breadcrumb-item" aria-current="page">Sample Page</li>
                 </ul>
               </div>
             </div>
@@ -338,215 +362,20 @@ session_start();
 
         <!-- [ Main Content ] start -->
         <div class="row">
-          <!-- [ Typography ] start -->
+          <!-- [ sample-page ] start -->
           <div class="col-sm-12">
             <div class="card">
               <div class="card-header">
-                <h5>Pending Request</h5>
-                <p>
-                <p> <i class="bi bi-file-earmark-word-fill col-3" style='color:blue'></i> Word Doc 2007 
-                  <a href="./WordDownload/requestedWord2007.php"><i class="ti ti-download" title='Download Word Doc'></i></a> </p>
-              
-                  <span class="badges">Pending</span>
-                  this section it contain some information about pending Request for Requested for trips  
-                </p>
+                <h5>Hello card</h5>
               </div>
-              <div class="card-body pc-component">
-                <!-- [unp approved request in trip that are pending ] -->
-                 <table class="table table-hover">
-                 <thead>
-                    <th>
-                      <td>#id</td>
-                      <td>Full Name</td>
-                      <td>Request Date</td>
-                      <td>Status </td>
-                      <td>Action </td>
-                    </th>
-                  </thead>
-                
-                 <?php
-                  $sqlpending= "SELECT * FROM `request_for_trip` WHERE status = 'pending'";
-                  $resultpending =  $conn->query($sqlpending);
-                   while($rows1 = $resultpending->fetch_array()){
-                    $rowid = $rows1[0];
-                    ?>
-                    <tbody>
-                  <tr>
-                    
-                    <td>  </td>
-                    
-                    <td><?php echo $rows1[1];?> </td>
-                    <td><?php echo $rows1[2];?></td>
-                    <td><?php echo $rows1[3];?></td>
-                    <td style='color: orange;'><?php  echo $rows1[4];?></td>
-                    <td>
-                      <?php
- /// for delete 
-                               echo "<a href='./requestaccept_declined/acceptrequest.php?id=$rowid'  onclick='return confirm(Are you sure you want to delete this user?);'>
-                                  <i class='bi bi-check-circle' style ='color: green;'></i></a>";
-                               echo "<a href='./requestaccept_declined/deleterequest.php?id=$rowid' >
-                                <i class='bi bi-x-circle' style='color: red;'></i></a>";    
-                      ?>
-                    </td>
-                 </tr>
-                </tbody>
-                    <?php
-
-                   }
-                 ?>
-                
-
-</table>
-
-                  <!-- [unp approved request in trip that are pending ] -->
+              <div class="card-body">
+                <i class="ti ti-maximize"></i>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore error beatae assumenda aliquid? Iusto sequi repellendus
+                doloribus dicta, voluptate odit odio perferendis id ipsam similique quasi praesentium sint saepe? Obcaecati!
               </div>
             </div>
           </div>
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-header">
-                <h5>Veiw Approved  Request </h5>
-                <p>
-                  <span class="badges">Approved</span>
-                  this section it contain some information about Approved Request for Requested for trips  
-                </p>
-              </div>
-              <div class="card-body pc-component">
-                 <!-- [unp approved request in trip that are approved  ] -->
-                 <table class="table table-hover">
-                 <thead>
-                    <th>
-                      <td>#id</td>
-                      <td>Full Name</td>
-                      <td>Request Date</td>
-                      
-                      <td>Status </td>
-                      <td>Download</td> 
-                      <td>Action </td>
-                    </th>
-                  </thead>
-                
-                 <?php
-                  $sqlpending= "SELECT * FROM `request_for_trip` WHERE status = 'approved'";
-                  $resultpending =  $conn->query($sqlpending);
-                   while($rows1 = $resultpending->fetch_array()){
-                    $rowid = $rows1[0];
-
-                    //  user name using qrcode 
-                    // $username = 
-                     $username = $rows1[2];
-                     $status = $rows1[4];
-
-                     // data from qrcode 
-
-                     $data = "Username:\n$username\nApproved Name:\n$status";
-                     $file = "qrphoto/approved_qrcode$rowid.png";
-                     
-                     QRcode::png($data,$file,QR_ECLEVEL_L , 10 ,2 );
-
-                    ?>
-                    <tbody> 
-                  <tr>
-                    
-                    <td>  </td>
-                    
-                    <td><?php echo $rows1[1];?> </td>
-                    <td><?php echo $rows1[2];?></td>
-                    <td><?php echo $rows1[3];?></td>
-                    <td style ='color: green;' ><?php  echo $rows1[4];?></td>
-                    <td>
-                      <a href="<?php echo $file;?>" download class="">
-                        <i class="bi bi-download"></i> 
-                     </a></td>
-                    <td>
-                      <?php
- /// for delete 
-                echo "<a href='./requestaccept_declined/acceptrequest.php?id=$rowid'  onclick='return confirm(Are you sure you want to delete this user?);'>
-              <i class='bi bi-check-circle' style ='color: green;'></i></a>";
-              echo "<a href='./requestaccept_declined/deleterequest.php?id=$rowid' >
-              <i class='bi bi-x-circle' style='color: red;'></i></a>";    
-      
-                      ?>
-                    </td>
-                 </tr>
-                </tbody>
-                    <?php
-
-                   }
-                 ?>
-
-</table>
-
-                  <!-- [unp approved request in trip that are approved  ] -->
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-header">
-                <h5>Veiw Declined  Request </h5>
-                <p>
-                  <span class="badges">Declined </span>
-                  this section it contain some information about Declined Request for Requested for trips  
-                </p>
-              </div>
-              <div class="card-body pc-component">
-                 <!-- [unp approved request in trip that are approved  ] -->
-                 <table class="table table-hover">
-                 <thead>
-                    <th>
-                      <td>#id</td>
-                      <td>Full Name</td>
-                      <td>Request Date</td>
-                      <td>Status </td>
-                      <td>Action </td>
-                    </th>
-                  </thead>
-                
-                 <?php
-                  $sqlpending= "SELECT * FROM `request_for_trip` WHERE status = 'declined'";
-                  $resultpending =  $conn->query($sqlpending);
-                   while($rows1 = $resultpending->fetch_array()){
-                    $rowid = $rows1[0];
-                    ?>
-                    <tbody>
-                  <tr>
-                    
-                    <td>  </td>
-                    
-                    <td><?php echo $rows1[1];?> </td>
-                    <td><?php echo $rows1[2];?></td>
-                    <td><?php echo $rows1[3];?></td>
-                    <td style='color: red;'><?php  echo $rows1[4];?></td>
-                    <td>
-                      <?php
- /// for delete 
-                     echo "<a href='./requestaccept_declined/acceptrequest.php?id=$rowid'  onclick='return confirm(Are you sure you want to delete this user?);'>
-                     <i class='bi bi-check-circle' style ='color: green;'></i></a>";
-                      echo "<a href='./requestaccept_declined/deleterequest.php?id=$rowid' >
-                    <i class='bi bi-x-circle' style='color: red;'></i></a>";      
-                      ?>
-                    </td>
-                 </tr>
-                </tbody>
-                    <?php
-
-                   }
-                 ?>
-                
-
-</table>
-
-                  <!-- [unp approved request in trip that are approved  ] -->
-              </div>
-            </div>
-          </div>
-          
-          
-          
-          
-         
-          <!-- [ Typography ] end -->
+          <!-- [ sample-page ] end -->
         </div>
         <!-- [ Main Content ] end -->
       </div>
@@ -558,7 +387,8 @@ session_start();
           <div class="col-sm-6 my-1">
             <p class="m-0">
               Berry &#9829; crafted by Team
-              <a href="https://isonic0788.github.io/myProject_one/" target="_blank">Ebedi</a></p>
+              <a href="https://themeforest.net/user/codedthemes" target="_blank">CodedThemes</a>
+            </p>
           </div>
           <div class="col-sm-6 ms-auto my-1">
             <ul class="list-inline footer-link mb-0 justify-content-sm-end d-flex">
