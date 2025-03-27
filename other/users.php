@@ -359,6 +359,8 @@ session_start();
             <div class="card">
               <div class="card-header">
                 <h5>List of users  </h5>
+                <p><i class="bi bi-file-earmark-word-fill col-3" style='color:blue'></i>Word Doc 2007
+                   <a href="./WordDownload/userWord2007.php"><i class="ti ti-download" title='Download Word Doc'></i></a> </p>
               </div>
               <div class="card-body">
                 <!-- [tables and data diplay ] -->
@@ -494,3 +496,10 @@ session_start();
   </body>
   <!-- [Body] end -->
 </html>
+<?php
+
+// for php to genarate word document \
+
+
+
+?>
